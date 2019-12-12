@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="bbf9ce29-67ee-43dd-998d-11bbdbc635f3" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
       <list>
@@ -9,15 +18,68 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1UpzLHo2uUThh1Ek0gzc9DGmpbT" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="bbf9ce29-67ee-43dd-998d-11bbdbc635f3" name="Default Changelist" comment="" />
+      <created>1576068266366</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1576068266366</updated>
+    </task>
+    <task id="LOCAL-00001" summary="backend">
+      <created>1576068313594</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1576068313594</updated>
+    </task>
+    <task id="LOCAL-00002" summary="backend">
+      <created>1576068339396</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1576068339396</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="backend" />
+    <option name="LAST_COMMIT_MESSAGE" value="backend" />
+  </component>
   <component name="WindowStateProjectService">
-    <state x="227" y="42" key="CommitChangelistDialog2" timestamp="1576068313274">
+    <state x="227" y="42" key="CommitChangelistDialog2" timestamp="1576068339250">
       <screen x="0" y="23" width="1440" height="829" />
     </state>
-    <state x="227" y="42" key="CommitChangelistDialog2/0.23.1440.829@0.23.1440.829" timestamp="1576068313274" />
+    <state x="227" y="42" key="CommitChangelistDialog2/0.23.1440.829@0.23.1440.829" timestamp="1576068339250" />
+    <state x="397" y="270" key="com.intellij.ide.util.TipDialog" timestamp="1576154565886">
+      <screen x="0" y="23" width="1440" height="829" />
+    </state>
+    <state x="397" y="270" key="com.intellij.ide.util.TipDialog/0.23.1440.829@0.23.1440.829" timestamp="1576154565886" />
   </component>
 </project>
