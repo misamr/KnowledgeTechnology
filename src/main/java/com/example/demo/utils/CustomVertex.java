@@ -1,4 +1,4 @@
-package java.com.example.demo.utils;
+package com.example.demo.utils;
 
 /**
  * this class is used for loading the questions

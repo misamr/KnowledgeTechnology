@@ -1,4 +1,4 @@
-package java.com.example.demo.utils;
+package com.example.demo.utils;
 
 import org.apache.commons.io.IOUtils;
 import org.springframework.core.io.ClassPathResource;

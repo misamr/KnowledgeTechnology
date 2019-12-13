@@ -1,1 +1,11 @@
-/Users/michaela/Desktop/demo/src/main/java/com/example/demo/DemoApplication.java
+/Users/michaela/Desktop/KnowledgeTechnology/src/main/java/com/example/demo/rulemodel/RuleModel.java
+/Users/michaela/Desktop/KnowledgeTechnology/src/main/java/com/example/demo/utils/CustomVertex.java
+/Users/michaela/Desktop/KnowledgeTechnology/src/main/java/com/example/demo/domainmodel/Survey.java
+/Users/michaela/Desktop/KnowledgeTechnology/src/main/java/com/example/demo/utils/QuestionsUtil.java
+/Users/michaela/Desktop/KnowledgeTechnology/src/main/java/com/example/demo/utils/KnowledgeBase.java
+/Users/michaela/Desktop/KnowledgeTechnology/src/main/java/com/example/demo/rulemodel/Inference.java
+/Users/michaela/Desktop/KnowledgeTechnology/src/main/java/com/example/demo/Application.java
+/Users/michaela/Desktop/KnowledgeTechnology/src/main/java/com/example/demo/utils/RelationshipEdge.java
+/Users/michaela/Desktop/KnowledgeTechnology/src/main/java/com/example/demo/ControllerKB.java
+/Users/michaela/Desktop/KnowledgeTechnology/src/main/java/com/example/demo/domainmodel/OptionTextValue.java
+/Users/michaela/Desktop/KnowledgeTechnology/src/main/java/com/example/demo/domainmodel/Patient.java

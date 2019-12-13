@@ -1,4 +1,4 @@
-package java.com.example.demo.utils;
+package com.example.demo.utils;
 
 import java.io.StringReader;
 import java.nio.charset.StandardCharsets;
@@ -10,8 +10,8 @@ import org.apache.commons.io.IOUtils;
 import org.jgrapht.Graph;
 import org.jgrapht.graph.*;
 import org.jgrapht.io.*;
-import org.rug.ai.kb.domainmodel.OptionTextValue;
-import org.rug.ai.kb.domainmodel.Survey;
+import com.example.demo.domainmodel.OptionTextValue;
+import com.example.demo.domainmodel.Survey;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 

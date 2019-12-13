@@ -1,6 +1,6 @@
-package java.com.example.demo.rulemodel;
+package com.example.demo.rulemodel;
 
-import java.com.example.demo.domainmodel.Patient;
+import com.example.demo.domainmodel.Patient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -13,7 +13,7 @@ public class RuleModel {
 
     private static Logger logger = LoggerFactory.getLogger(RuleModel.class);
 
-    public static void populate(UserProfile fact, String question, String answer){
+    public static void populate(Patient fact, String question, String answer){
 
         if(question.equals("Which age group do you belong to?")) {
             fact.init();

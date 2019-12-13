@@ -1,20 +1,20 @@
-package java.com.example.demo;
+package com.example.demo;
 
 import java.util.*;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 
-import java.com.example.demo.utils.KnowledgeBase;
+import com.example.demo.utils.KnowledgeBase;
 import org.slf4j.*;
 import org.jgrapht.Graph;
-import java.com.example.demo.domainmodel.Patient;
-import java.com.example.demo.domainmodel.Survey;
-import java.com.example.demo.rulemodel.RuleModel;
-import java.com.example.demo.rulemodel.Inference;
-import java.com.example.demo.utils.CustomVertex;
-import java.com.example.demo.utils.QuestionsUtil;
-import java.com.example.demo.utils.RelationshipEdge;
+import com.example.demo.domainmodel.Patient;
+import com.example.demo.domainmodel.Survey;
+import com.example.demo.rulemodel.RuleModel;
+import com.example.demo.rulemodel.Inference;
+import com.example.demo.utils.CustomVertex;
+import com.example.demo.utils.QuestionsUtil;
+import com.example.demo.utils.RelationshipEdge;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
@@ -30,13 +30,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class ControllerKB {
 
-    private Logger logger = LoggerFactory.getLogger(KBController.class);
+    private Logger logger = LoggerFactory.getLogger(ControllerKB.class);
     private Graph<CustomVertex, RelationshipEdge> graph;
     private Map<String, String[]> specialistsMap = null;
 
     @Resource
-    private UserProfile fact; //this is a session scoped variable
+    private Patient fact; //this is a session scoped variable
 
+   // private CustomVertex root = new CustomVertex("1", "Do you have any health problems or injuries?", "radio");
     private Survey rootSurvey;
 
     /**
@@ -47,7 +48,7 @@ public class ControllerKB {
     @PostConstruct
     public void init() throws Exception {
         graph = QuestionsUtil.getGraph();
-        rootSurvey = QuestionsUtil.getSurveyInstance(graph, root);
+        // rootSurvey = QuestionsUtil.getSurveyInstance(graph, root);
         specialistsMap = KnowledgeBase.getDomainKnowledgeMap();
     }
 
@@ -61,9 +62,9 @@ public class ControllerKB {
     @GetMapping("/kb")
     public String kbForm(Model model) throws Exception {
         graph = QuestionsUtil.getGraph();
-        rootSurvey = QuestionsUtil.getSurveyInstance(graph, root);
-        Map = KnowledgeBase.getDomainKnowledgeMap();
-        fact = new UserProfile();
+       // rootSurvey = QuestionsUtil.getSurveyInstance(graph, root);
+        specialistsMap = KnowledgeBase.getDomainKnowledgeMap();
+        fact = new Patient();
         logger.info("Page initiated");
         model.addAttribute("survey", rootSurvey);
 

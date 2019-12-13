@@ -1,4 +1,4 @@
-package java.com.example.demo.rulemodel;
+package com.example.demo.rulemodel;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -7,8 +7,8 @@ import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import java.com.example.demo.KBController;
-import java.com.example.demo.Patient;
+import com.example.demo.ControllerKB;
+import com.example.demo.domainmodel.Patient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

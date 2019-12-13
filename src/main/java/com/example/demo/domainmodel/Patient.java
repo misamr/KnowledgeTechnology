@@ -1,4 +1,4 @@
-package java.com.example.demo.domainmodel;
+package com.example.demo.domainmodel;
 
 import java.io.Serializable;
 import java.util.*;

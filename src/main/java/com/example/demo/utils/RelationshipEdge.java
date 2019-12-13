@@ -1,4 +1,4 @@
-package java.com.example.demo.utils;
+package com.example.demo.utils;
 
 import org.jgrapht.graph.DefaultEdge;
 

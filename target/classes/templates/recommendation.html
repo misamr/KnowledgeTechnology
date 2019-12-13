@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link href='https://fonts.googleapis.com/css?family=Catamaran' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css?family=Raleway:900" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        body {
+			font-family: 'Lato', sans-serif;;
+			font-size: 19px;
+			background: #4ADDB4;
+			color: white;
+		}
+
+        .container{
+  			height: 100%;
+  			width: 100%;
+  			display: flex;
+
+  			align-items: center;
+  			justify-content: center;
+	    }
+	    .center{
+  			width: 50%;
+  	   		height: 50%;
+	    }
+
+	    .inspiration-button-reset {
+		    font-family: 'Lato', sans-serif;
+
+			left: 52%;
+			-webkit-transform: translate(-50%, 0%);
+					transform: translate(-50%, 0%);
+			color: #222222;
+			text-decoration: none;
+			padding: 0.75rem 1rem;
+			border-radius: 80px;
+			background: white; 	
+			-webkit-transition: -webkit-transform 250ms ease;
+			transition: -webkit-transform 250ms ease;
+			transition: transform 250ms ease;
+			transition: transform 250ms ease, -webkit-transform 250ms ease;
+  	    }
+	    .inspiration-button-reset:hover, .inspiration-button-reset:focus, .inspiration-button-reset:active {
+		  -webkit-transform: translate(-50%, -10%);
+				  transform: translate(-50%, -10%);
+	    }
+	    .inspiration-button-home {
+		    font-family: 'Lato', sans-serif;
+			left: 45%;
+			-webkit-transform: translate(-50%, 0%);
+					transform: translate(-50%, 0%);
+			color: #222222;
+			text-decoration: none;
+			padding: 0.75rem 1rem;
+			border-radius: 80px;
+            background: white; 
+			-webkit-transition: -webkit-transform 250ms ease;
+			transition: -webkit-transform 250ms ease;
+			transition: transform 250ms ease;
+			transition: transform 250ms ease, -webkit-transform 250ms ease;
+  	    }
+	    .inspiration-button-home:hover, .inspiration-button-reset:focus, .inspiration-button-reset:active {
+		  -webkit-transform: translate(-50%, -10%);
+				  transform: translate(-50%, -10%);
+	    }
+
+    </style>
+    <title>Plan</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <div class="container" style="height:13%">
+        <div class="center">
+                <h2>Recommendation</h2>
+            <ul>
+                <li th:each="item : ${recommendations}" th:text="${item}"> </li>
+            </ul>
+
+        </div>
+    </div>
+    <div align="center">
+        <a class="inspiration-button-home" href="./index.html">Home</a>
+        &nbsp; &nbsp; &nbsp; &nbsp; <a class="inspiration-button-reset" href="/kb">Re-Start</a>
+    </div>
+</body>
+</html>
