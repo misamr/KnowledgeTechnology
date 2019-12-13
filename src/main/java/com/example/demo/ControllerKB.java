@@ -37,7 +37,7 @@ public class ControllerKB {
     @Resource
     private Patient fact; //this is a session scoped variable
 
-   // private CustomVertex root = new CustomVertex("1", "Do you have any health problems or injuries?", "radio");
+    private CustomVertex root = new CustomVertex("1", "Which age group do you belong to?", "radio");
     private Survey rootSurvey;
 
     /**
@@ -48,7 +48,7 @@ public class ControllerKB {
     @PostConstruct
     public void init() throws Exception {
         graph = QuestionsUtil.getGraph();
-        // rootSurvey = QuestionsUtil.getSurveyInstance(graph, root);
+        rootSurvey = QuestionsUtil.getSurveyInstance(graph, root);
         specialistsMap = KnowledgeBase.getDomainKnowledgeMap();
     }
 
@@ -62,7 +62,7 @@ public class ControllerKB {
     @GetMapping("/kb")
     public String kbForm(Model model) throws Exception {
         graph = QuestionsUtil.getGraph();
-       // rootSurvey = QuestionsUtil.getSurveyInstance(graph, root);
+        rootSurvey = QuestionsUtil.getSurveyInstance(graph, root);
         specialistsMap = KnowledgeBase.getDomainKnowledgeMap();
         fact = new Patient();
         logger.info("Page initiated");
