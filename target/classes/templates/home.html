@@ -1,0 +1,158 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<link href='https://fonts.googleapis.com/css?family=Catamaran' rel='stylesheet'>
+	<link href="https://fonts.googleapis.com/css?family=Raleway:900" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+	<link rel="stylesheet" href="css/style.css">
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+	<script>
+    $(function () {
+        $("#dialog").hide();
+
+    });
+    function isSelected(){
+
+        if ($('input[type=radio]:checked').length > 0  || $('input[type=checkbox]:checked').length > 0){
+        	$("#dialog").hide();
+            document.getElementById('surveyForm').submit();
+        } else {
+            console.log("Dialog",  $('#dialog'));
+            $("#dialog").show();
+
+        }
+    }
+    </script>
+	<style>
+		body {
+		    font-family: 'Lato', sans-serif;
+			font-size: 25px;
+			background: #4ADDB4;
+			color: white;
+		}
+		.container{
+  			height: 100%;
+  			width: 100%;
+  			display: flex;
+
+  			align-items: center;
+  			justify-content: center;
+		}
+		.center{
+  			width: 50%;
+  			height: 50%;
+		}
+		.centerButton{
+			display: flex;
+  			align-items: center;
+  			justify-content: center;
+  		}
+  		.inspiration-button-next {
+		    font-family: 'Lato', sans-serif;
+
+			left: 28%;
+			-webkit-transform: translate(-50%, 0%);
+					transform: translate(-50%, 0%);
+			color: #222222;
+			text-decoration: none;
+			padding: 0.75rem 1rem;
+			border-radius: 80px;
+			background: white; 
+			-webkit-transition: -webkit-transform 250ms ease;
+			transition: -webkit-transform 250ms ease;
+			transition: transform 250ms ease;
+			transition: transform 250ms ease, -webkit-transform 250ms ease;
+  		}
+  		.inspiration-button-reset {
+		    font-family: 'Lato', sans-serif;
+			left: 50%;
+			-webkit-transform: translate(-50%, 0%);
+					transform: translate(-50%, 0%);
+			color: #222222;
+			text-decoration: none;
+			padding: 0.75rem 1rem;
+			border-radius: 80px;
+			background: white; 
+			-webkit-transition: -webkit-transform 250ms ease;
+			transition: -webkit-transform 250ms ease;
+			transition: transform 250ms ease;
+			transition: transform 250ms ease, -webkit-transform 250ms ease;
+  		}
+		.inspiration-button-next:hover, .inspiration-button-next:focus, .inspiration-button-next:active {
+		  -webkit-transform: translate(-50%, -10%);
+				  transform: translate(-50%, -10%);
+		}
+		.inspiration-button-reset:hover, .inspiration-button-reset:focus, .inspiration-button-reset:active {
+		  -webkit-transform: translate(-50%, -10%);
+				  transform: translate(-50%, -10%);
+		}
+		.headerHome{
+		    font-family: 'Lato', sans-serif;
+            background: #222222;
+            text-transform: uppercase;
+            left: 0%;
+            width: 100%;
+            -webkit-transform: translateY(-50%);
+                    transform: translateY(-50%);
+            font-size: 3rem;
+            color: #25c5d4;
+            text-align: center;
+            margin-top: 0;
+            font-weight: 100;
+		}
+	</style>
+    <title>xGP</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+
+<div class="container" style="height:15%">
+	<div class="center">
+    <form action="#" th:action="@{/kb}" th:object="${survey}" method="post" id="surveyForm">
+
+		<h3><span th:text="*{question}" th:field="*{question}"></span></h3>
+
+    	<input type="hidden" th:field="*{question}"  th:value="*{question}"/>
+		<div th:switch="${displayType}">
+			<div th:case="'radio'">
+
+			<ul style="list-style-type:none">
+
+
+ 			 		<li th:each="var: ${singleSelectAllText}">
+   			 		<input type="radio"
+       			 	th:field="*{radioButtonSelectedValue}"
+        			th:value="${var.value}" />
+    				<label
+        			th:for="${#ids.prev('radioButtonSelectedValue')}"
+       					 th:text="${var.text}"></label>
+  					</li>
+				</ul>
+			</div>
+			<div th:case="'checkbox'">
+
+
+					<div th:each="var: ${singleSelectAllText}">
+						<input type="checkbox"
+							   th:field="*{radioButtonSelectedValue}"
+							   th:value="${var.value}" />
+						<label
+								th:for="${#ids.prev('radioButtonSelectedValue')}"
+								th:text="${var.text}"></label>
+					</div>
+
+			</div>
+		</div>
+
+		<div style="height:20px"></div>
+		<div id="dialog" style="color:#c10017;display:none">Please select an option.</div>
+		<div style="height:22px"></div>
+
+		<a href="/kb" class="inspiration-button-next" onclick="isSelected(); return false;" onclick1="document.getElementById('surveyForm').submit(); return false;"> Next </a>
+		&nbsp; &nbsp; &nbsp; &nbsp; <a href="/kb" class="inspiration-button-reset" onclick=onclick="location.href='/kb';"> Reset </a>
+		</form>
+</div>
+</div>
+</body>
+</html>
