@@ -43,9 +43,10 @@ public class Patient  implements Serializable {
     public List<String> getMedication() {
         return medication;
     }
-    public void setMedication(List<String> symptoms) {
+    public void setMedication(List<String> medication) {
         this.medication = medication;
     }
+
     
     public List<String> getRecommendations() {
         return recommendations;
