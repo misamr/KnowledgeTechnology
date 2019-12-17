@@ -1,7 +1,7 @@
 graph[
     node[
         id 1
-        label "Which age group do you belong to?"
+        label "Which age group does the patient belong to?"
         display "radio"
     ]
     node[
