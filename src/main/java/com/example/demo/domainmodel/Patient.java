@@ -16,7 +16,10 @@ import org.springframework.context.annotation.ScopedProxyMode;
 @Scope(value = "session", proxyMode = ScopedProxyMode.TARGET_CLASS)
 public class Patient  implements Serializable {
     private String age;
+    private List<String> symptoms;
+    private List<String> medication;
     private List<String> recommendations;
+
 
     public void init() {
         this.age = null;
@@ -30,6 +33,20 @@ public class Patient  implements Serializable {
         this.age = age;
     }
 
+    public List<String> getSymptoms() {
+        return symptoms;
+    }
+    public void setSymptoms(List<String> symptoms) {
+        this.symptoms = symptoms;
+    }
+
+    public List<String> getMedication() {
+        return medication;
+    }
+    public void setMedication(List<String> symptoms) {
+        this.medication = medication;
+    }
+    
     public List<String> getRecommendations() {
         return recommendations;
     }
