@@ -37,9 +37,8 @@ public class ControllerKB {
     @Resource
     private Patient fact; //this is a session scoped variable
 
-    private CustomVertex root = new CustomVertex("1", "Which age group do you belong to?", "radio");
+    private CustomVertex root = new CustomVertex("1", "Which age group does the patient belong to?", "radio");
     private Survey rootSurvey;
-
     /**
      * load the questions and the knowledge base on startup
      *

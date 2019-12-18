@@ -1,18 +1,8 @@
 graph[
     node[
         id 1
-        label "Which age group do you belong to?"
+        label "Which age group does the patient belong to?"
         display "radio"
-    ]
-    node[
-        id 2
-        label "exit"
-        display "terminate"
-    ]
-    edge[
-        source 1
-        target 2
-        label "less than 18 years old"
     ]
     edge[
         source 1
@@ -24,5 +14,57 @@ graph[
         target 2
         label "50 years or older"
     ]
-  
+
+
+    node[
+        id 100
+        label "Does the patient suffer from any of the following conditions?"
+        display "checkbox"
+    ]
+    edge[
+        source 100
+        target 3
+        label "diabetes"
+    ]
+    edge[
+        source 100
+        target 3
+        label "hypertension"
+    ]
+    edge[
+        source 100
+        target 3
+        label "chronic pain"
+    ]
+
+
+    node[
+            id 3
+            label "exit"
+            display "terminate"
+     ]
+
+
+
+    node[
+        id 2
+        label "Does the patient have a sore throat?"
+        display "radio"
+    ]
+    edge[
+        source 2
+        target 3
+        label "yes"
+    ]
+    edge[
+        source 2
+        target 3
+        label "no"
+    ]
+
+
+
+
+
 ]
+

@@ -22,7 +22,7 @@ public class Inference {
      * it populates the recommendations in the fact instance
      *
      * @param fact
-     * @param exerciseMap
+     *
      */
     public static void inferRules(Patient fact, Map<String, String[]>  specialistsMap) {
 
@@ -32,23 +32,24 @@ public class Inference {
             inference = Arrays.asList(specialistsMap.get(fact.getAge()));
         }
 
-/*
+
         if(fact.getSymptoms() != null) {
-            List<String> tempList = Arrays.asList(specialistsMap.get(fact.Symptoms().get(0)));
+            List<String> tempList = Arrays.asList(specialistsMap.get(fact.getSymptoms().get(0)));
+            //inference = Arrays.asList(specialistsMap.get(fact.getSymptoms().get(0)));
             inference = intersect(inference , tempList);
 
             /**
              * iterate over all the chosen symptoms and merge all the recommendations
              */
-/*
+            /*
             if( fact.getSymptoms().size() > 1 ) {
                 for(int i = 1; i < fact.getSymptoms().size(); i++){
                     tempList = Arrays.asList(specialistsMap.get(fact.getSymptoms().get(i)));
                     inference = merge(tempList, inference);
                 }
-            }
+            }*/
         }
-        */
+
 
         logger.info("inference=" + inference.toString() );
         //set the final recommendations
