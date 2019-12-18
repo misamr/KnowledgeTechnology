@@ -3,5 +3,3 @@
 sore throat=Otolaryngologist
 diabetes=Cardiologist
 hypertension=Cardiologist
-exercise=Physiotherapist
-no exercise=Cardiologist
