@@ -22,17 +22,17 @@ graph[
         display "checkbox"
     ]
     edge[
-        source 2
+        source 100
         target 3
         label "diabetes"
     ]
     edge[
-        source 2
+        source 100
         target 3
         label "hypertension"
     ]
     edge[
-        source 2
+        source 100
         target 3
         label "chronic pain"
     ]

@@ -36,7 +36,7 @@ public class Inference {
         if(fact.getSymptoms() != null) {
             List<String> tempList = Arrays.asList(specialistsMap.get(fact.getSymptoms().get(0)));
             //inference = Arrays.asList(specialistsMap.get(fact.getSymptoms().get(0)));
-            inference = intersect(inference , tempList);
+            inference = merge(inference , tempList); //was previously intersect
 
             /**
              * iterate over all the chosen symptoms and merge all the recommendations
