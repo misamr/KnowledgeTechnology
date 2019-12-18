@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bbf9ce29-67ee-43dd-998d-11bbdbc635f3" name="Default Changelist" comment="">
+    <list default="true" id="bbf9ce29-67ee-43dd-998d-11bbdbc635f3" name="Default Changelist" comment="merge instead of intersect when there is only one symptom">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/domainmodel/Patient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/domainmodel/Patient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/rulemodel/Inference.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/rulemodel/Inference.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/questionsGraphUP.gml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/questionsGraphUP.gml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/rulemodel/Inference.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/rulemodel/Inference.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/questionsGraphUP.gml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/questionsGraphUP.gml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -108,7 +115,14 @@
       <option name="project" value="LOCAL" />
       <updated>1576633887293</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="merge instead of intersect when there is only one symptom">
+      <created>1576634518303</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1576634518303</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -131,7 +145,8 @@
     <MESSAGE value="changed point of view of question" />
     <MESSAGE value="add medication and symptoms per element" />
     <MESSAGE value="new rules" />
-    <option name="LAST_COMMIT_MESSAGE" value="new rules" />
+    <MESSAGE value="merge instead of intersect when there is only one symptom" />
+    <option name="LAST_COMMIT_MESSAGE" value="merge instead of intersect when there is only one symptom" />
   </component>
   <component name="WindowStateProjectService">
     <state x="227" y="42" key="CommitChangelistDialog2" timestamp="1576068339250">

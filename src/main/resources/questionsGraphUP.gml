@@ -15,54 +15,49 @@ graph[
         label "50 years or older"
     ]
 
-
     node[
-        id 100
-        label "Does the patient suffer from any of the following conditions?"
-        display "checkbox"
-    ]
-    edge[
-        source 100
-        target 3
-        label "diabetes"
-    ]
-    edge[
-        source 100
-        target 3
-        label "hypertension"
-    ]
-    edge[
-        source 100
-        target 3
-        label "chronic pain"
-    ]
-
-
-    node[
-            id 3
-            label "exit"
-            display "terminate"
-     ]
-
+            id 2
+            label "Does the patient suffer from any of the following conditions?"
+            display "checkbox"
+        ]
+        edge[
+            source 2
+            target 3
+            label "diabetes"
+        ]
+        edge[
+            source 2
+            target 3
+            label "hypertension"
+        ]
+        edge[
+            source 2
+            target 3
+            label "chronic pain"
+        ]
 
 
     node[
-        id 2
+        id 3
         label "Does the patient have a sore throat?"
         display "radio"
     ]
     edge[
-        source 2
-        target 3
+        source 3
+        target 4
         label "yes"
     ]
     edge[
-        source 2
-        target 3
+        source 3
+        target 4
         label "no"
     ]
 
-
+    node[
+            id 4
+            label "exit"
+            display "terminate"
+     ]
 
 
 

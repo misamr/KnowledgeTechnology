@@ -33,7 +33,7 @@ public class Inference {
         }
 
 
-        if(fact.getSymptoms() != null) {
+        if(fact.getSymptoms().size() > 0) {
             List<String> tempList = Arrays.asList(specialistsMap.get(fact.getSymptoms().get(0)));
             //inference = Arrays.asList(specialistsMap.get(fact.getSymptoms().get(0)));
             inference = merge(inference , tempList); //was previously intersect
@@ -41,13 +41,13 @@ public class Inference {
             /**
              * iterate over all the chosen symptoms and merge all the recommendations
              */
-            /*
+
             if( fact.getSymptoms().size() > 1 ) {
                 for(int i = 1; i < fact.getSymptoms().size(); i++){
                     tempList = Arrays.asList(specialistsMap.get(fact.getSymptoms().get(i)));
                     inference = merge(tempList, inference);
                 }
-            }*/
+            }
         }
 
 

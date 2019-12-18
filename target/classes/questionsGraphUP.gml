@@ -17,29 +17,29 @@ graph[
 
 
     node[
-        id 100
+        id 3
         label "Does the patient suffer from any of the following conditions?"
         display "checkbox"
     ]
     edge[
-        source 100
-        target 3
+        source 3
+        target 4
         label "diabetes"
     ]
     edge[
-        source 100
-        target 3
+        source 3
+        target 4
         label "hypertension"
     ]
     edge[
-        source 100
-        target 3
+        source 3
+        target 4
         label "chronic pain"
     ]
 
 
     node[
-            id 3
+            id 4
             label "exit"
             display "terminate"
      ]
