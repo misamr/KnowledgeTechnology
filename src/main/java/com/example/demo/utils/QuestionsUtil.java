@@ -46,8 +46,7 @@ public final class QuestionsUtil {
 
         EdgeProvider<CustomVertex, RelationshipEdge> ep = (from, to, label, attributes) -> {
 
-            RelationshipEdge edge = new RelationshipEdge(attributes.get("label").toString());
-            return edge;
+            return new RelationshipEdge(attributes.get("label").toString());
         };
 
         GmlImporter<CustomVertex, RelationshipEdge> importer = new GmlImporter<>(vp, ep);
