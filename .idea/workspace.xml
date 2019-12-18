@@ -80,11 +80,16 @@
       <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ai-kb.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ai-kb.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/ControllerKB.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/ControllerKB.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/domainmodel/Patient.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/domainmodel/Patient.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/rulemodel/Inference.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/rulemodel/Inference.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/rulemodel/RuleModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/rulemodel/RuleModel.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/utils/CustomVertex.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/utils/CustomVertex.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/utils/KnowledgeBase.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/utils/KnowledgeBase.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/utils/QuestionsUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/utils/QuestionsUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/questionsGraphUP.gml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/questionsGraphUP.gml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -175,7 +180,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
