@@ -111,7 +111,7 @@
 
 
 <div class="container" style="height:15%">
-	<div class="center" style="position:fixed;bottom:20%">
+	<div class="center" style="position:fixed;bottom:30%">
     <form action="#" th:action="@{/kb}" th:object="${survey}" method="post" id="surveyForm">
 
 		<h3><span th:text="*{question}" th:field="*{question}"></span></h3>
@@ -151,7 +151,7 @@
 		<div id="dialog" style="color:#c10017;display:none">Please select an option.</div>
 		<div style="height:22px"></div>
 
-		<a href="/kb" class="button" onclick="isSelected(); return false;" onclick1="document.getElementById('surveyForm').submit(); return false;" style="position:fixed;bottom:10%"> Next </a>
+		<a href="/kb" class="button" onclick="isSelected(); return false;" onclick1="document.getElementById('surveyForm').submit(); return false;" style="position:fixed;bottom:20%"> Next </a>
 		&nbsp; &nbsp; &nbsp; <!--&nbsp; <a href="/kb" class="button2" onclick="location.href='/kb';" > Reset </a>
 		&nbsp; <a href="./about.html" class="button2" onclick="location.href='/about.html';" style="position:fixed;top:10px;right:1000px"> About </a>
 		&nbsp<a href="/kb" class="button" onclick=onclick="location.href='/kb';style="position:fixed;top:10px;right:10px"> Reset </a>-->
