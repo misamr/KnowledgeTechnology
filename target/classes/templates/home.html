@@ -3,6 +3,8 @@
 <head>
 	<link href='https://fonts.googleapis.com/css?family=Catamaran' rel='stylesheet'>
 	<link href="https://fonts.googleapis.com/css?family=Raleway:900" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:700&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 	<link rel="stylesheet" href="css/style.css">
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
@@ -25,10 +27,10 @@
     </script>
 	<style>
 		body {
-		    font-family: 'Lato', sans-serif;
+		    font-family: 'Montserrat', sans-serif;
 			font-size: 25px;
-			background: #4ADDB4;
-			color: white;
+			background: white;
+			color: #2d302f;
 		}
 		.container{
   			height: 100%;
@@ -38,6 +40,7 @@
   			align-items: center;
   			justify-content: center;
 		}
+
 		.center{
   			width: 50%;
   			height: 50%;
@@ -108,7 +111,7 @@
 
 
 <div class="container" style="height:15%">
-	<div class="center">
+	<div class="center" style="position:fixed;bottom:20%">
     <form action="#" th:action="@{/kb}" th:object="${survey}" method="post" id="surveyForm">
 
 		<h3><span th:text="*{question}" th:field="*{question}"></span></h3>
@@ -131,8 +134,7 @@
 				</ul>
 			</div>
 			<div th:case="'checkbox'">
-
-
+				<ul style="list-style-type:none">
 					<div th:each="var: ${singleSelectAllText}">
 						<input type="checkbox"
 							   th:field="*{radioButtonSelectedValue}"
@@ -141,7 +143,7 @@
 								th:for="${#ids.prev('radioButtonSelectedValue')}"
 								th:text="${var.text}"></label>
 					</div>
-
+				</ul>
 			</div>
 		</div>
 
@@ -149,10 +151,18 @@
 		<div id="dialog" style="color:#c10017;display:none">Please select an option.</div>
 		<div style="height:22px"></div>
 
-		<a href="/kb" class="inspiration-button-next" onclick="isSelected(); return false;" onclick1="document.getElementById('surveyForm').submit(); return false;"> Next </a>
-		&nbsp; &nbsp; &nbsp; &nbsp; <a href="/kb" class="inspiration-button-reset" onclick=onclick="location.href='/kb';"> Reset </a>
-		</form>
+		<a href="/kb" class="button" onclick="isSelected(); return false;" onclick1="document.getElementById('surveyForm').submit(); return false;" style="position:fixed;bottom:10%"> Next </a>
+		&nbsp; &nbsp; &nbsp; <!--&nbsp; <a href="/kb" class="button2" onclick="location.href='/kb';" > Reset </a>
+		&nbsp; <a href="./about.html" class="button2" onclick="location.href='/about.html';" style="position:fixed;top:10px;right:1000px"> About </a>
+		&nbsp<a href="/kb" class="button" onclick=onclick="location.href='/kb';style="position:fixed;top:10px;right:10px"> Reset </a>-->
+		<div class="btn-group" style="position:fixed;right:0px;top:0px;">
+			<a href="/kb" class="button2" onclick="location.href='/kb';" > Reset </a>
+			<a href="/index.html" class="button2" onclick="location.href='/index.html';" > Home </a>
+			<a href="/about.html" class="button2" onclick="location.href='/about.html';" > About </a>
+		</div>
+	</form>
 </div>
 </div>
+
 </body>
 </html>
