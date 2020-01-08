@@ -2,16 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bbf9ce29-67ee-43dd-998d-11bbdbc635f3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/ControllerKB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/ControllerKB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/rulemodel/Inference.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/rulemodel/Inference.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/rulemodel/RuleModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/rulemodel/RuleModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/utils/QuestionsUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/utils/QuestionsUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/public/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/about.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/public/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/public/about.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/home.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
@@ -28,6 +36,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RequestMappingsPanelOrder0" value="0" />
     <property name="RequestMappingsPanelOrder1" value="1" />
     <property name="RequestMappingsPanelWidth0" value="75" />
@@ -50,7 +59,13 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Unnamed">
+    <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.demo.Application" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="ai-kb" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.demo.Application" />
@@ -58,6 +73,9 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.Unnamed" />
+    </list>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -85,14 +103,28 @@
       <option name="project" value="LOCAL" />
       <updated>1576068339396</updated>
     </task>
-    <task id="LOCAL-00003" summary="fixed inital greeting">
-      <created>1576670750954</created>
+    <task id="LOCAL-00003" summary="new rules">
+      <created>1576671635055</created>
       <option name="number" value="00003" />
       <option name="presentableId" value="LOCAL-00003" />
       <option name="project" value="LOCAL" />
-      <updated>1576670750954</updated>
+      <updated>1576671635055</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="new layout">
+      <created>1578488099674</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1578488099674</updated>
+    </task>
+    <task id="LOCAL-00005" summary="new layout">
+      <created>1578488116722</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1578488116722</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -113,8 +145,9 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="backend" />
-    <MESSAGE value="fixed inital greeting" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed inital greeting" />
+    <MESSAGE value="new rules" />
+    <MESSAGE value="new layout" />
+    <option name="LAST_COMMIT_MESSAGE" value="new layout" />
   </component>
   <component name="WindowStateProjectService">
     <state x="227" y="42" key="CommitChangelistDialog2" timestamp="1576068339250">
