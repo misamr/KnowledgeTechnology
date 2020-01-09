@@ -1,11 +1,13 @@
 package com.example.demo.domainmodel;
 
-import java.io.Serializable;
-import java.util.*;
-
 import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Component;
 import org.springframework.context.annotation.ScopedProxyMode;
+import org.springframework.stereotype.Component;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 /**
  * This the domain model and it is session scoped
@@ -14,38 +16,47 @@ import org.springframework.context.annotation.ScopedProxyMode;
  */
 @Component
 @Scope(value = "session", proxyMode = ScopedProxyMode.TARGET_CLASS)
-public class Patient  implements Serializable {
+public class Patient implements Serializable {
     private String age;
     private String gender;
-    private List<String> symptoms ;
+    private List<String> symptoms;
     private List<String> medications;
-    private List<String> recommendations;
+    private HashMap<String, Integer> recommendations;
+    private List<String> specialists;
 
     public void init() {
         this.age = null;
         this.gender = null;
-        //this.symptoms = new ArrayList<String>();
-        this.symptoms = new ArrayList<String>();;
-        this.medications = new ArrayList<String>();
-        this.recommendations = null;
+        this.symptoms = new ArrayList<>();
+        this.medications = new ArrayList<>();
+        this.recommendations = new HashMap<>();
+        this.specialists = new ArrayList<>();
     }
 
     public String getAge() {
         return age;
     }
+
     public void setAge(String age) {
         this.age = age;
     }
 
-    public String getGender(){return gender;}
-    public void setGender(String gender) {this.gender = gender;}
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
 
     public List<String> getSymptoms() {
         return symptoms;
     }
+
     public void setSymptoms(List<String> symptoms) {
         this.symptoms = symptoms;
     }
+
     public void addSymptom(String symptom) {
         this.symptoms.add(symptom);
     }
@@ -53,18 +64,29 @@ public class Patient  implements Serializable {
     public List<String> getMedications() {
         return medications;
     }
+
     public void setMedications(List<String> medications) {
         this.medications = medications;
     }
-    public void addMedication(String medication) {this.medications.add(medication);}
 
-    
-    public List<String> getRecommendations() {
+    public void addMedication(String medication) {
+        this.medications.add(medication);
+    }
+
+    public HashMap<String, Integer> getRecommendations() {
         return recommendations;
     }
 
-    public void setRecommendations(List<String> recommendations) {
+    public void setRecommendations(HashMap<String, Integer> recommendations) {
         this.recommendations = recommendations;
+    }
+
+    public List<String> getSpecialists() {
+        return specialists;
+    }
+
+    public void setSpecialists(List<String> specialists) {
+        this.specialists = specialists;
     }
 
     @Override

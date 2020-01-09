@@ -4,12 +4,7 @@ import com.example.demo.domainmodel.Patient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
+import java.util.*;
 
 /**
  * inference class
@@ -18,59 +13,29 @@ public class Inference {
     private static Logger logger = LoggerFactory.getLogger(Inference.class);
 
     /**
-     * it populates the recommendations in the fact instance
+     * it populates the recommendations in the patient instance
      *
-     * @param fact
+     * @param patient patient's stats
      */
-    public static void inferRules(Patient fact, Map<String, String[]> specialistsMap) {
-        List<String> inference = new ArrayList<>();
-        if (fact.getAge() != null) {
-            inference = Arrays.asList(specialistsMap.get(fact.getAge()));
+    public static void inferRules(Patient patient) {
+        LinkedHashMap<String, Integer> sortedRecommendations = sortByValue(patient.getRecommendations());
+        List<String> recommendations = new ArrayList<>();
+        for (Map.Entry<String, Integer> entry : sortedRecommendations.entrySet()) {
+            recommendations.add(entry.getKey());
         }
-        if (fact.getSymptoms().size() > 0) {
-            List<String> tempList = Arrays.asList(specialistsMap.get(fact.getSymptoms().get(0)));
-            //inference = Arrays.asList(specialistsMap.get(fact.getSymptoms().get(0)));
-            inference = merge(inference, tempList); //was previously intersect
-
-            /*
-             * iterate over all the chosen symptoms and merge all the recommendations
-             */
-
-            if (fact.getSymptoms().size() > 1) {
-                for (int i = 1; i < fact.getSymptoms().size(); i++) {
-                    tempList = Arrays.asList(specialistsMap.get(fact.getSymptoms().get(i)));
-                    inference = merge(tempList, inference);
-                }
-            }
-        }
-        logger.info("inference=" + inference.toString());
-        //set the final recommendations
-        fact.setRecommendations(inference);
+        logger.info("inference=" + sortedRecommendations.toString());
+        patient.setSpecialists(recommendations);
     }
 
-    /**
-     * merge two lists together and remove duplicates
-     *
-     * @param l1
-     * @param l2
-     * @return
-     */
-    private static List<String> merge(List<String> l1, List<String> l2) {
-        List<String> j = Stream.concat(l1.stream(), l2.stream())
-                .collect(Collectors.toList());
-        return j.stream().distinct().collect(Collectors.toList());
-
-    }
-
-    /**
-     * filter to only show things in common (in l2)
-     *
-     * @param l1
-     * @param l2
-     * @return
-     */
-    private static List<String> intersect(List<String> l1, List<String> l2) {
-        return l1.stream().filter(x -> l2.contains(x)).collect(Collectors.toList());
+    private static LinkedHashMap<String, Integer> sortByValue(HashMap<String, Integer> hm) {
+        List<Map.Entry<String, Integer>> list =
+                new LinkedList<>(hm.entrySet());
+        list.sort(Comparator.comparing(Map.Entry::getValue));
+        LinkedHashMap<String, Integer> temp = new LinkedHashMap<>();
+        for (Map.Entry<String, Integer> aa : list) {
+            temp.put(aa.getKey(), aa.getValue());
+        }
+        return temp;
     }
 
 

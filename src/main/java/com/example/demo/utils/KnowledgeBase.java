@@ -14,17 +14,16 @@ import java.util.Map;
  */
 public class KnowledgeBase {
     /**
-     *
      * @return
      * @throws Exception
      */
-    public  static Map<String,String[]> getDomainKnowledgeMap() throws Exception {
+    public static Map<String, String[]> getDomainKnowledgeMap() throws Exception {
         Resource resource = new ClassPathResource("specialists.txt");
         List<String> list = IOUtils.readLines(resource.getInputStream(), StandardCharsets.UTF_8);
         Map<String, String[]> execMap = new HashMap<>();
 
         list.forEach(x -> {
-            String[] values= x.split("=");
+            String[] values = x.split("=");
             execMap.put(values[0], values[1].split("%"));
         });
         return execMap;

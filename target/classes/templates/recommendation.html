@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://thymeleaf.org">
 <head>
     <link href='https://fonts.googleapis.com/css?family=Catamaran' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/css?family=Raleway:900" rel="stylesheet">
@@ -74,7 +74,7 @@
         <div class="center">
                 <h2>Recommendation</h2>
             <ul>
-                <li th:each="item : ${recommendations}" th:text="${item}"> </li>
+                <li th:each="item : ${specialists}" th:text="${item}"> </li>
             </ul>
 
         </div>
