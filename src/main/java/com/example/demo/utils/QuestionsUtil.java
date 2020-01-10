@@ -52,7 +52,7 @@ public final class QuestionsUtil {
         logger.info("question " + next.getText() + "patient " + patient.getRecommendations().keySet());
         for (String tag : patient.getRecommendations().keySet()) {
             logger.info("Patient: " + tag + " Question: " + next.getTags() + next.getText() + next.getTags().size());
-            if (next.getTags().contains(tag) || next.getTags().size() == 1) {
+            if (next.getTags().contains(tag) || (next.getTags().size() == 1 && next.getTags().get(0).equals(""))) {
                 logger.info("FIRE!!!!!!!!!!!!!!!!!!");
                 break;
             } else {
