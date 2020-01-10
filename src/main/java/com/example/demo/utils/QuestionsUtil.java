@@ -49,11 +49,12 @@ public final class QuestionsUtil {
         return questions;
     }
 
-    private static Question getNextQuestion(Question question, Patient patient) {
+    public static Question getNextQuestion(String question, Patient patient) {
         List<Question> questions = initializeQuestions();
         Question next = null;
+        logger.info("question " + question);
         for (Question q : questions) {
-            if (q.getText().equals(question.getText())) {
+            if (q.getText().equals(question)) {
                 next = q;
                 break;
             }
@@ -69,15 +70,19 @@ public final class QuestionsUtil {
     }
 
 
-    public static Survey getSurveyInstance(Question question, Patient patient) throws Exception {
+    public static Survey getSurveyInstance(String question, Patient patient) {
         Survey survey = new Survey();
         Question next = getNextQuestion(question, patient);
         List<String> answers = new ArrayList<>(next.getAnswers().keySet());
+        String[] answersString = new String[answers.size()];
+        for (int i = 0; i < answers.size(); i++){
+            answersString[i] = answers.get(i);
+        }
         survey.setQuestion(next);
-        survey.setOptions(String.join(",", answers));
+        survey.setOptions(answersString);
         survey.setQuestionText(next.getText());
         survey.setDisplayType(next.getQuestionType());
-        String[] options = survey.getOptions().split(",");
+        String[] options = survey.getOptions();
         OptionTextValue[] optionTextValues = new OptionTextValue[options.length];
         for (int i = 0; i < options.length; i++){
             optionTextValues[i] = new OptionTextValue(next.getText(), options[i]);
