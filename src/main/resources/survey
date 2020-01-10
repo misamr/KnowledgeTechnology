@@ -9,7 +9,7 @@ sore throat,Otolaryngologist;diabetes,Cardiologist;hypertension,Cardiologist;dis
 Has the patient experienced cardiac arrest or stroke in the past?
 
 radio
-no,Cardiologist,Neurologist;yes,
+yes,Cardiologist,Neurologist;no,
 Does the patient have diabetes?
 
 radio
@@ -45,7 +45,7 @@ yes,Otolaryngologist;no,
 Does the patient experience a headache (regularly)?
 
 radio
-yes,neurologist;no,
+yes,Neurologist;no,
 Does the patient have trouble concentrating?
 Neurologist
 radio
