@@ -144,15 +144,15 @@
                 </div>
                 <div th:case="'checkbox'">
                     <ul style="list-style-type:none">
-                        <div th:each="var: ${singleSelectAllText}">
+                        <div th:each="var: ${survey.options}">
                             <label>
                                 <input type="checkbox"
                                        th:field="*{checkBoxSelectedValues}"
                                        name="checkBoxSelectedValues"
                                        th:checked="${true}"
-                                       th:value="${var.value}"/>
+                                       th:value="${var}"/>
                                 <label
-                                        th:text="${var.text}"></label>
+                                        th:text="${var}"></label>
                             </label>
 
                         </div>
