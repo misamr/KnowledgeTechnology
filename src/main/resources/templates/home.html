@@ -129,15 +129,16 @@
                 <div th:case="'radio'">
 
                     <ul style="list-style-type:none">
-                        <li th:each="var: ${singleSelectAllText}">
+                        <li th:each="var: ${survey.options}">
                             <label>
                                 <input type="radio"
                                        th:field="*{radioButtonSelectedValue}"
-                                       th:value="0"/>
+                                       th:value="${var}"/>
                             </label>
                             <label
                                     th:for="${#ids.prev('radioButtonSelectedValue')}"
-                                    th:text="${var.text}"></label>
+                                    th:text="${var}"></label>
+
                         </li>
                     </ul>
                 </div>
