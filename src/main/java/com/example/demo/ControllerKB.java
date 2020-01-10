@@ -61,10 +61,13 @@ public class ControllerKB {
         patient = new Patient();
         logger.info("Page initiated");
         model.addAttribute("survey", rootSurvey);
-        model.addAttribute("question", rootSurvey.getQuestionText());
+        model.addAttribute("questionText", rootSurvey.getQuestionText());
         model.addAttribute("singleSelectAllText", rootSurvey.getOptionTextValue());
+        logger.info("Option text vals: " + Arrays.toString(rootSurvey.getOptionTextValue()));
         model.addAttribute("singleSelectAllValues", rootSurvey.getOptions());
+        logger.info("options " + rootSurvey.getOptions());
         model.addAttribute("displayType", rootSurvey.getDisplayType());
+        logger.info("display type " + rootSurvey.getDisplayType());
         return "home";
     }
 

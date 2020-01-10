@@ -2,48 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bbf9ce29-67ee-43dd-998d-11bbdbc635f3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/domainmodel/Question.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/survey" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.classpath" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.project" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.settings/org.eclipse.core.resources.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.settings/org.eclipse.jdt.apt.core.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.settings/org.eclipse.jdt.core.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.settings/org.eclipse.m2e.core.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vscode/settings.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ai-kb.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ai-kb.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvnw.cmd" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/ControllerKB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/ControllerKB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/domainmodel/OptionTextValue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/domainmodel/OptionTextValue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/domainmodel/Patient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/domainmodel/Patient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/domainmodel/Survey.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/domainmodel/Survey.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/rulemodel/Inference.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/rulemodel/Inference.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/rulemodel/RuleModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/rulemodel/RuleModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/utils/CustomVertex.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/utils/KnowledgeBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/utils/KnowledgeBase.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/utils/QuestionsUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/utils/QuestionsUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/questionsGraphUP.gml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/recommendation.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/recommendation.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/Application.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/Application.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/ControllerKB.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/ControllerKB.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/domainmodel/OptionTextValue.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/domainmodel/Patient.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/domainmodel/Patient.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/domainmodel/Survey.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/domainmodel/Survey.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/rulemodel/Inference.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/rulemodel/Inference.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/rulemodel/RuleModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/rulemodel/RuleModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/utils/CustomVertex.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/utils/KnowledgeBase.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/utils/KnowledgeBase.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/utils/QuestionsUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/utils/QuestionsUtil.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/utils/RelationshipEdge.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/utils/RelationshipEdge.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/questionsGraphUP.gml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/recommendation.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/recommendation.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/example/demo/DemoApplicationTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/example/demo/DemoApplicationTests.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/survey" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/survey" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -89,7 +52,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="extract.method.default.visibility" value="private" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/KnowledgeTechnology-master" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -123,8 +86,8 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Spring Boot.Application" />
       <item itemvalue="Application.Application" />
+      <item itemvalue="Spring Boot.Application" />
     </list>
   </component>
   <component name="SvnConfiguration">
@@ -138,6 +101,7 @@
       <option name="presentableId" value="Default" />
       <updated>1576068266366</updated>
       <workItem from="1576533635326" duration="751000" />
+      <workItem from="1578649520247" duration="3403000" />
     </task>
     <task id="LOCAL-00001" summary="backend">
       <created>1576068313594</created>
@@ -174,7 +138,14 @@
       <option name="project" value="LOCAL" />
       <updated>1578488116722</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="major refactoring, linear logic implementation, frontend not yet working">
+      <created>1578546400598</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1578546400599</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -197,7 +168,8 @@
     <MESSAGE value="backend" />
     <MESSAGE value="new rules" />
     <MESSAGE value="new layout" />
-    <option name="LAST_COMMIT_MESSAGE" value="new layout" />
+    <MESSAGE value="major refactoring, linear logic implementation, frontend not yet working" />
+    <option name="LAST_COMMIT_MESSAGE" value="major refactoring, linear logic implementation, frontend not yet working" />
   </component>
   <component name="WindowStateProjectService">
     <state x="227" y="42" key="CommitChangelistDialog2" />

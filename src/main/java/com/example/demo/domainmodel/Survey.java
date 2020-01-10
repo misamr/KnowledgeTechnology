@@ -11,7 +11,7 @@ public class Survey {
     private String radioButtonSelectedValue;
     private String checkBoxSelectedValue;
     private String displayType;
-    private OptionTextValue optionTextValue;
+    private OptionTextValue[] optionTextValue;
     public Question getQuestion() {
         return question;
     }
@@ -70,11 +70,11 @@ public class Survey {
         this.displayType = displayType;
     }
 
-    public OptionTextValue getOptionTextValue() {
+    public OptionTextValue[] getOptionTextValue() {
         return optionTextValue;
     }
 
-    public void setOptionTextValue(OptionTextValue optionTextValue) {
+    public void setOptionTextValue(OptionTextValue[] optionTextValue) {
         this.optionTextValue = optionTextValue;
     }
 

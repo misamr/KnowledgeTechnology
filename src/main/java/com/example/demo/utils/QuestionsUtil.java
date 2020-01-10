@@ -77,7 +77,12 @@ public final class QuestionsUtil {
         survey.setOptions(String.join(",", answers));
         survey.setQuestionText(next.getText());
         survey.setDisplayType(next.getQuestionType());
-        survey.setOptionTextValue(new OptionTextValue(next.getText(), survey.getOptions()));
+        String[] options = survey.getOptions().split(",");
+        OptionTextValue[] optionTextValues = new OptionTextValue[options.length];
+        for (int i = 0; i < options.length; i++){
+            optionTextValues[i] = new OptionTextValue(next.getText(), options[i]);
+        }
+        survey.setOptionTextValue(optionTextValues);
         return survey;
     }
 }

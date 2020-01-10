@@ -1,12 +1,12 @@
 What is the age of the patient?
 
-'radio'
+radio
 18 to 49,Physiotherapist;50 and above,Cardiologist
 Does the patient suffer from any of the following conditions?
 
-'checkbox'
+checkbox
 sore throat,Otolaryngologist;diabetes,Cardiologist;hypertension,Cardiologist;disability,Physiotherapist
 Has the patient experienced cardiac arrest or stroke in the past?
 Cardiologist
-'radio'
+radio
 yes,Cardiologist;no,Physiotherapist
