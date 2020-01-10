@@ -66,7 +66,6 @@ public class ControllerKB {
         model.addAttribute("singleSelectAllValues", rootSurvey.getOptions());
         logger.info("options " + Arrays.toString(rootSurvey.getOptions()));
         model.addAttribute("displayType", rootSurvey.getDisplayType());
-        logger.info("display type " + rootSurvey.getDisplayType());
         return "home";
     }
 
@@ -81,8 +80,6 @@ public class ControllerKB {
     @PostMapping("/kb")
     public String kbSubmit(@ModelAttribute Survey survey, Model model) throws Exception {
         /* Returning the appropriate pages after the questionnaire has been completed */
-        logger.info("Selected Values Radio " + survey.getRadioButtonSelectedValue());
-        logger.info("Selected Values CB " + Arrays.toString(survey.getCheckBoxSelectedValues()));
         List<String> values = Arrays.asList(survey.getCheckBoxSelectedValues() == null ?
                 getValues(new String[]{survey.getRadioButtonSelectedValue()}) : getValues(survey.getCheckBoxSelectedValues()));
 
@@ -93,8 +90,7 @@ public class ControllerKB {
             RuleModel.populate(patient, questionText, values);
         }
         logger.info("Patient data " + patient.getRecommendations().keySet());
-        Question question = QuestionsUtil.getNextQuestion(questionText, patient);
-        logger.info("next question: " +question.getText());
+        Question question = RuleModel.getQuestionKB(patient, questionText);
         Survey surveyNew = QuestionsUtil.getSurveyInstance(question.getText(), patient);
         if (surveyNew.getQuestionText().equals("exit")) {
             Inference.inferRules(patient);

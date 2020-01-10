@@ -2,9 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1d5efd07-7c22-4774-bb0e-c8e1bb4b6537" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/survey" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/survey" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/ControllerKB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/ControllerKB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/utils/QuestionsUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/utils/QuestionsUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/ControllerKB.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/ControllerKB.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/utils/QuestionsUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/utils/QuestionsUtil.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -69,7 +72,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Application">
+  <component name="RunManager" selected="Spring Boot.Application">
     <configuration name="Application" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="com.example.demo.Application" />
       <method v="2">
@@ -157,7 +160,14 @@
       <option name="project" value="LOCAL" />
       <updated>1578664120308</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="next question started to work, but one question is skipped">
+      <created>1578665247239</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1578665247239</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -183,7 +193,8 @@
     <MESSAGE value="major refactoring, linear logic implementation, frontend not yet working" />
     <MESSAGE value="options now appear on screen" />
     <MESSAGE value="radiobuttons fixed" />
-    <option name="LAST_COMMIT_MESSAGE" value="radiobuttons fixed" />
+    <MESSAGE value="next question started to work, but one question is skipped" />
+    <option name="LAST_COMMIT_MESSAGE" value="next question started to work, but one question is skipped" />
   </component>
   <component name="WindowStateProjectService">
     <state x="227" y="42" key="CommitChangelistDialog2" />

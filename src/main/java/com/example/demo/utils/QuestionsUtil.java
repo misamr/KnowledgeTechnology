@@ -5,7 +5,6 @@ import com.example.demo.domainmodel.OptionTextValue;
 import com.example.demo.domainmodel.Patient;
 import com.example.demo.domainmodel.Question;
 import com.example.demo.domainmodel.Survey;
-import com.example.demo.rulemodel.RuleModel;
 import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,10 +13,7 @@ import org.springframework.core.io.Resource;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 
 public final class QuestionsUtil {
@@ -52,20 +48,27 @@ public final class QuestionsUtil {
 
     public static Question getNextQuestion(String question, Patient patient) {
         List<Question> questions = initializeQuestions();
+        Question next = getNextQuestionElement(question, questions);
+        logger.info("question " + next.getText() + "patient " + patient.getRecommendations().keySet());
+        for (String tag : patient.getRecommendations().keySet()) {
+            logger.info("Patient: " + tag + " Question: " + Objects.requireNonNull(next).getTags() + next.getText());
+            if (next != null && next.getTags().contains(tag)) {
+                logger.info("FIRE!!!!!!!!!!!!!!!!!!");
+                break;
+            } else {
+                next = getNextQuestionElement(next.getText(), questions);
+            }
+        }
+        return next;
+    }
+
+    private static Question getNextQuestionElement(String question, List<Question> questions) {
         Question next = null;
-        logger.info("question " + question);
         for (int i = 0; i < questions.size() - 1; i++) {
             Question q = questions.get(i);
             if (q.getText().equals(question)) {
-                next = questions.get(i+1);
+                next = questions.get(i + 1);
                 break;
-            }
-        }
-        if (patient.getRecommendations() != null) {
-            for (String tag : patient.getRecommendations().keySet()) {
-                if (next != null && next.getTags().contains(tag)) {
-                    next = questions.get(questions.indexOf(next));
-                }
             }
         }
         return next;
@@ -74,42 +77,49 @@ public final class QuestionsUtil {
 
     public static Survey getSurveyInstance(String question, Patient patient) {
         Survey survey = new Survey();
-        Question next = getNextQuestion(question, patient);
-        List<String> answers = new ArrayList<>(next.getAnswers().keySet());
-        String[] answersString = new String[answers.size()];
-        for (int i = 0; i < answers.size(); i++){
-            answersString[i] = answers.get(i);
+        try {
+            Question next = getNextQuestion(question, patient);
+            logger.info("Patient data UTILS" + patient.getRecommendations().keySet());
+            String[] answersString = getSelectedAnswers(next);
+            survey.setQuestion(next);
+            survey.setOptions(answersString);
+            survey.setQuestionText(next.getText());
+            survey.setDisplayType(next.getQuestionType());
+            String[] options = survey.getOptions();
+            OptionTextValue[] optionTextValues = new OptionTextValue[options.length];
+            for (int i = 0; i < options.length; i++) {
+                optionTextValues[i] = new OptionTextValue(next.getText(), options[i]);
+            }
+            survey.setOptionTextValue(optionTextValues);
+        } catch (NullPointerException e) {
+            survey.setQuestionText("exit");
         }
-        survey.setQuestion(next);
-        survey.setOptions(answersString);
-        survey.setQuestionText(next.getText());
-        survey.setDisplayType(next.getQuestionType());
-        String[] options = survey.getOptions();
-        OptionTextValue[] optionTextValues = new OptionTextValue[options.length];
-        for (int i = 0; i < options.length; i++){
-            optionTextValues[i] = new OptionTextValue(next.getText(), options[i]);
-        }
-        survey.setOptionTextValue(optionTextValues);
         return survey;
     }
+
     public static Survey getInitialSurveyInstance(List<Question> questions, Patient patient) {
         Survey survey = new Survey();
         Question question = questions.get(0);
-        List<String> answers = new ArrayList<>(question.getAnswers().keySet());
-        String[] answersString = new String[answers.size()];
-        for (int i = 0; i < answers.size(); i++){
-            answersString[i] = answers.get(i);
-        }
+        String[] answersString = getSelectedAnswers(question);
         survey.setQuestion(question);
         survey.setOptions(answersString);
         survey.setQuestionText(question.getText());
         survey.setDisplayType(question.getQuestionType());
         String[] options = survey.getOptions();
         OptionTextValue[] optionTextValues = new OptionTextValue[options.length];
-        for (int i = 0; i < options.length; i++){
+        for (int i = 0; i < options.length; i++) {
             optionTextValues[i] = new OptionTextValue(question.getText(), options[i]);
         }
         survey.setOptionTextValue(optionTextValues);
         return survey;
+    }
+
+    private static String[] getSelectedAnswers(Question question) {
+        List<String> answers = new ArrayList<>(question.getAnswers().keySet());
+        String[] answersString = new String[answers.size()];
+        for (int i = 0; i < answers.size(); i++) {
+            answersString[i] = answers.get(i);
+        }
+        return answersString;
     }
 }
