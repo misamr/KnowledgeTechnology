@@ -18,7 +18,7 @@ public class RuleModel {
     private static List<Question> questions = QuestionsUtil.initializeQuestions();
 
     public static void populate(Patient patient, String question, String answer) {
-        Question questionKB = getQuestionKB(patient, question);
+        Question questionKB = getQuestionKB(question);
         List<String> patientTags = Objects.requireNonNull(questionKB).getAnswers().get(answer);
         for (String tag : patientTags) {
             patient.getRecommendations().put(tag, patient.getRecommendations().getOrDefault(tag, 0) + 1);
@@ -27,7 +27,7 @@ public class RuleModel {
     }
 
     public static void populate(Patient patient, String question, List<String> answers) {
-        Question questionKB = getQuestionKB(patient, question);
+        Question questionKB = getQuestionKB(question);
         for (String answer : answers) {
             List<String> patientTags = Objects.requireNonNull(questionKB).getAnswers().get(answer);
             for (String tag : patientTags) {
@@ -36,8 +36,8 @@ public class RuleModel {
         }
     }
 
-    public static Question getQuestionKB(Patient patient, String question) {
-        patient.init();
+    public static Question getQuestionKB(String question) {
+
         Question questionKB = null;
         for (Question q : questions) {
             if (q.getText().equals(question)) {

@@ -1,11 +1,11 @@
-C:\Users\luke\Documents\0 - AI BACHELOR\0 - year 3\github\KnowledgeTechnology\src\main\java\com\example\demo\domainmodel\Question.java
-C:\Users\luke\Documents\0 - AI BACHELOR\0 - year 3\github\KnowledgeTechnology\src\main\java\com\example\demo\domainmodel\Survey.java
-C:\Users\luke\Documents\0 - AI BACHELOR\0 - year 3\github\KnowledgeTechnology\src\main\java\com\example\demo\rulemodel\Inference.java
-C:\Users\luke\Documents\0 - AI BACHELOR\0 - year 3\github\KnowledgeTechnology\src\main\java\com\example\demo\rulemodel\RuleModel.java
-C:\Users\luke\Documents\0 - AI BACHELOR\0 - year 3\github\KnowledgeTechnology\src\main\java\com\example\demo\utils\KnowledgeBase.java
-C:\Users\luke\Documents\0 - AI BACHELOR\0 - year 3\github\KnowledgeTechnology\src\main\java\com\example\demo\utils\QuestionsUtil.java
-C:\Users\luke\Documents\0 - AI BACHELOR\0 - year 3\github\KnowledgeTechnology\src\main\java\com\example\demo\domainmodel\OptionTextValue.java
-C:\Users\luke\Documents\0 - AI BACHELOR\0 - year 3\github\KnowledgeTechnology\src\main\java\com\example\demo\domainmodel\Patient.java
-C:\Users\luke\Documents\0 - AI BACHELOR\0 - year 3\github\KnowledgeTechnology\src\main\java\com\example\demo\utils\RelationshipEdge.java
-C:\Users\luke\Documents\0 - AI BACHELOR\0 - year 3\github\KnowledgeTechnology\src\main\java\com\example\demo\Application.java
-C:\Users\luke\Documents\0 - AI BACHELOR\0 - year 3\github\KnowledgeTechnology\src\main\java\com\example\demo\ControllerKB.java
+/home/liya/RUG/3rd year/1B/KTP/KnowledgeTechnology/src/main/java/com/example/demo/rulemodel/RuleModel.java
+/home/liya/RUG/3rd year/1B/KTP/KnowledgeTechnology/src/main/java/com/example/demo/Application.java
+/home/liya/RUG/3rd year/1B/KTP/KnowledgeTechnology/src/main/java/com/example/demo/domainmodel/OptionTextValue.java
+/home/liya/RUG/3rd year/1B/KTP/KnowledgeTechnology/src/main/java/com/example/demo/utils/KnowledgeBase.java
+/home/liya/RUG/3rd year/1B/KTP/KnowledgeTechnology/src/main/java/com/example/demo/utils/QuestionsUtil.java
+/home/liya/RUG/3rd year/1B/KTP/KnowledgeTechnology/src/main/java/com/example/demo/utils/RelationshipEdge.java
+/home/liya/RUG/3rd year/1B/KTP/KnowledgeTechnology/src/main/java/com/example/demo/domainmodel/Question.java
+/home/liya/RUG/3rd year/1B/KTP/KnowledgeTechnology/src/main/java/com/example/demo/rulemodel/Inference.java
+/home/liya/RUG/3rd year/1B/KTP/KnowledgeTechnology/src/main/java/com/example/demo/ControllerKB.java
+/home/liya/RUG/3rd year/1B/KTP/KnowledgeTechnology/src/main/java/com/example/demo/domainmodel/Patient.java
+/home/liya/RUG/3rd year/1B/KTP/KnowledgeTechnology/src/main/java/com/example/demo/domainmodel/Survey.java

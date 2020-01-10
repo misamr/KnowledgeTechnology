@@ -51,8 +51,8 @@ public final class QuestionsUtil {
         Question next = getNextQuestionElement(question, questions);
         logger.info("question " + next.getText() + "patient " + patient.getRecommendations().keySet());
         for (String tag : patient.getRecommendations().keySet()) {
-            logger.info("Patient: " + tag + " Question: " + Objects.requireNonNull(next).getTags() + next.getText());
-            if (next != null && next.getTags().contains(tag)) {
+            logger.info("Patient: " + tag + " Question: " + next.getTags() + next.getText() + next.getTags().size());
+            if (next.getTags().contains(tag) || next.getTags().size() == 1) {
                 logger.info("FIRE!!!!!!!!!!!!!!!!!!");
                 break;
             } else {
