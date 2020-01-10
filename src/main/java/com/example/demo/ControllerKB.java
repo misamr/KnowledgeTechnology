@@ -56,16 +56,15 @@ public class ControllerKB {
      */
     @GetMapping("/kb")
     public String kbForm(Model model) throws Exception {
-        rootSurvey = QuestionsUtil.getSurveyInstance(questions.get(0).getText(), patient);
+        rootSurvey = QuestionsUtil.getInitialSurveyInstance(questions, patient);
         specialistsMap = KnowledgeBase.getDomainKnowledgeMap();
         patient = new Patient();
         logger.info("Page initiated");
         model.addAttribute("survey", rootSurvey);
         model.addAttribute("questionText", rootSurvey.getQuestionText());
         model.addAttribute("singleSelectAllText", rootSurvey.getOptionTextValue());
-        logger.info("Option text vals: " + Arrays.toString(rootSurvey.getOptionTextValue()));
         model.addAttribute("singleSelectAllValues", rootSurvey.getOptions());
-        logger.info("options " + rootSurvey.getOptions());
+        logger.info("options " + Arrays.toString(rootSurvey.getOptions()));
         model.addAttribute("displayType", rootSurvey.getDisplayType());
         logger.info("display type " + rootSurvey.getDisplayType());
         return "home";
@@ -93,10 +92,11 @@ public class ControllerKB {
         } else {
             RuleModel.populate(patient, questionText, values);
         }
+        logger.info("Patient data " + patient.getRecommendations().keySet());
         Question question = QuestionsUtil.getNextQuestion(questionText, patient);
+        logger.info("next question: " +question.getText());
         Survey surveyNew = QuestionsUtil.getSurveyInstance(question.getText(), patient);
         if (surveyNew.getQuestionText().equals("exit")) {
-            //if user has reached the last questionText then fire inference and get the recommendation
             Inference.inferRules(patient);
             model.addAttribute("specialists", patient.getSpecialists());
             return "recommendation";
@@ -122,17 +122,6 @@ public class ControllerKB {
     private String[] getValues(String[] selectedValue) {
         logger.info("the selected values are: " + Arrays.toString(selectedValue));
 
-        //        retVal[0] = temp[0];
-//        retVal[1] = ""; //answer field
-//        retVal[2] = temp[2];
-//        retVal[3] = temp[3];
-//        retVal[4] = temp[4];
-//        logger.info("Refactoring: retVal: " + Arrays.toString(retVal));
-//        for (String s : selectedValue) {
-//            retVal[1] = retVal[1] + s.split("%")[1] + ",";
-//        }
-//        retVal[1] = retVal[1].substring(0, retVal[1].lastIndexOf(","));
-//        logger.info("Refactoring: retVal after for loop: " + Arrays.toString(retVal));
         return selectedValue;
 
     }

@@ -85,6 +85,7 @@
     </configuration>
     <list>
       <item itemvalue="Application.Application" />
+      <item itemvalue="Spring Boot.Application" />
     </list>
   </component>
   <component name="SvnConfiguration">

@@ -5,6 +5,7 @@ import com.example.demo.domainmodel.OptionTextValue;
 import com.example.demo.domainmodel.Patient;
 import com.example.demo.domainmodel.Question;
 import com.example.demo.domainmodel.Survey;
+import com.example.demo.rulemodel.RuleModel;
 import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -53,9 +54,10 @@ public final class QuestionsUtil {
         List<Question> questions = initializeQuestions();
         Question next = null;
         logger.info("question " + question);
-        for (Question q : questions) {
+        for (int i = 0; i < questions.size() - 1; i++) {
+            Question q = questions.get(i);
             if (q.getText().equals(question)) {
-                next = q;
+                next = questions.get(i+1);
                 break;
             }
         }
@@ -86,6 +88,26 @@ public final class QuestionsUtil {
         OptionTextValue[] optionTextValues = new OptionTextValue[options.length];
         for (int i = 0; i < options.length; i++){
             optionTextValues[i] = new OptionTextValue(next.getText(), options[i]);
+        }
+        survey.setOptionTextValue(optionTextValues);
+        return survey;
+    }
+    public static Survey getInitialSurveyInstance(List<Question> questions, Patient patient) {
+        Survey survey = new Survey();
+        Question question = questions.get(0);
+        List<String> answers = new ArrayList<>(question.getAnswers().keySet());
+        String[] answersString = new String[answers.size()];
+        for (int i = 0; i < answers.size(); i++){
+            answersString[i] = answers.get(i);
+        }
+        survey.setQuestion(question);
+        survey.setOptions(answersString);
+        survey.setQuestionText(question.getText());
+        survey.setDisplayType(question.getQuestionType());
+        String[] options = survey.getOptions();
+        OptionTextValue[] optionTextValues = new OptionTextValue[options.length];
+        for (int i = 0; i < options.length; i++){
+            optionTextValues[i] = new OptionTextValue(question.getText(), options[i]);
         }
         survey.setOptionTextValue(optionTextValues);
         return survey;

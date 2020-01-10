@@ -1,7 +1,6 @@
 package com.example.demo.domainmodel;
 
 import java.util.Arrays;
-import java.util.List;
 
 public class Survey {
     private Question question;

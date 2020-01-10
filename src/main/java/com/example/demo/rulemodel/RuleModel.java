@@ -36,7 +36,7 @@ public class RuleModel {
         }
     }
 
-    private static Question getQuestionKB(Patient patient, String question) {
+    public static Question getQuestionKB(Patient patient, String question) {
         patient.init();
         Question questionKB = null;
         for (Question q : questions) {
