@@ -3,14 +3,16 @@
 <head>
     <link href='https://fonts.googleapis.com/css?family=Catamaran' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/css?family=Raleway:900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <style>
         body {
-			font-family: 'Lato', sans-serif;;
-			font-size: 19px;
-			background: #4ADDB4;
-			color: white;
-		}
+            font-family: 'Montserrat', sans-serif;
+            font-size: 25px;
+            background: white;
+            color: #2d302f;
+        }
 
         .container{
   			height: 100%;
@@ -79,9 +81,10 @@
 
         </div>
     </div>
-    <div align="center">
-        <a class="inspiration-button-home" href="./index.html">Home</a>
-        &nbsp; &nbsp; &nbsp; &nbsp; <a class="inspiration-button-reset" href="/kb">Re-Start</a>
+    <div class="btn-group" style="position:fixed;right:0px;top:0px;">
+        <a href="/kb" class="button2" onclick="location.href='/kb';"> Reset </a>
+        <a href="/index.html" class="button2" onclick="location.href='/index.html';"> Home </a>
+        <a href="/about.html" class="button2" onclick="location.href='/about.html';"> About </a>
     </div>
 </body>
 </html>
