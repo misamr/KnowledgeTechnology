@@ -58,7 +58,7 @@ public class ControllerKB {
     public String kbForm(Model model) throws Exception {
         rootSurvey = QuestionsUtil.getInitialSurveyInstance(questions, patient);
         specialistsMap = KnowledgeBase.getDomainKnowledgeMap();
-        patient = new Patient();
+        patient.init();
         logger.info("Page initiated");
         model.addAttribute("survey", rootSurvey);
         model.addAttribute("questionText", rootSurvey.getQuestionText());
@@ -90,7 +90,7 @@ public class ControllerKB {
             RuleModel.populate(patient, questionText, values);
         }
         logger.info("Patient data " + patient.getRecommendations().keySet());
-        Question question = RuleModel.getQuestionKB(patient, questionText);
+        Question question = RuleModel.getQuestionKB(questionText);
         Survey surveyNew = QuestionsUtil.getSurveyInstance(question.getText(), patient);
         if (surveyNew.getQuestionText().equals("exit")) {
             Inference.inferRules(patient);
