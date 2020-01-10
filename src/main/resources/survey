@@ -1,12 +1,84 @@
+What is the age of the patient?
+
+radio
+18 to 49,Physiotherapist;50 and above,Cardiologist
 Does the patient suffer from any of the following conditions?
 
 checkbox
 sore throat,Otolaryngologist;diabetes,Cardiologist;hypertension,Cardiologist;disability,Physiotherapist
 Has the patient experienced cardiac arrest or stroke in the past?
-Cardiologist
-radio
-yes,Cardiologist;no,Physiotherapist
-What is the age of the patient?
 
 radio
-18 to 49,Physiotherapist;50 and above,Cardiologist
+no,Cardiologist,Neurologist;yes,
+Does the patient have diabetes?
+
+radio
+yes,Cardiologist,Neurologist,Endocrinologist;no,
+Does the patient suffer from hypertension?
+
+radio
+yes,Cardiologist;no,
+Does the patient have any allergies?
+
+radio
+yes,Immunologist,Allergologist;no,
+Does the patient suffer from chronic renal disease?
+
+radio
+yes,Endocrinologist;no,
+Is the patient a smoker?
+Cardiologist
+radio
+yes,Cardiologist;no,
+Is the patient obese?
+Cardiologist
+radio
+yes,Cardiologist;no,
+Does the patient do sports/exercise regularly?
+
+radio
+yes,Physiotherapist;no,Cardiologist
+Does the patient have abnormally high body temperature?
+
+radio
+yes,Otolaryngologist;no,
+Does the patient experience a headache (regularly)?
+
+radio
+yes,neurologist;no,
+Does the patient have trouble concentrating?
+Neurologist
+radio
+yes,Neurologist;no,
+Does the patient experience seizures?
+Neurologist
+radio
+yes,Neurologist;no,
+Does the patient experience muscle/joint pain (except chronic)?
+
+radio
+yes,Physiotherapist;no,
+Does the onset of the pain follow after sport/exercise?
+Physiotherapist
+radio
+yes,Physiotherapist;no,
+Does the patient experience chest pain?
+Cardiologist
+radio
+yes,Cardiologist;no,
+Is the chest pain worsened by physical activity?
+Cardiologist
+radio
+yes,Cardiologist;no,
+Is the chest pain accompanied by
+Cardiologist
+checkbox
+sweating (even at rest),Cardiologist;irregular pulse,Cardiologist;none of the above,
+Does the patient have a sore throat?
+
+radio
+yes,Otolaryngologist;no,
+Does the patient experience coughing/sneezing?
+
+radio
+yes,Otolaryngologist;no,
