@@ -6,7 +6,7 @@ import java.util.List;
 public class Survey {
     private Question question;
     private String questionText;
-    private String options;
+    private String[] options;
     private String[] checkBoxSelectedValues;
     private String radioButtonSelectedValue;
     private String checkBoxSelectedValue;
@@ -46,7 +46,7 @@ public class Survey {
         this.radioButtonSelectedValue = radioButtonSelectedValue;
     }
 
-    public String getOptions() {
+    public String[] getOptions() {
         return options;
     }
 
@@ -58,7 +58,7 @@ public class Survey {
         this.checkBoxSelectedValues = checkBoxSelectedValues;
     }
 
-    public void setOptions(String options) {
+    public void setOptions(String[] options) {
         this.options = options;
     }
 

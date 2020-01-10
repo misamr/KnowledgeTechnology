@@ -56,7 +56,7 @@ public class ControllerKB {
      */
     @GetMapping("/kb")
     public String kbForm(Model model) throws Exception {
-        rootSurvey = QuestionsUtil.getSurveyInstance(questions.get(0), patient);
+        rootSurvey = QuestionsUtil.getSurveyInstance(questions.get(0).getText(), patient);
         specialistsMap = KnowledgeBase.getDomainKnowledgeMap();
         patient = new Patient();
         logger.info("Page initiated");
@@ -93,8 +93,8 @@ public class ControllerKB {
         } else {
             RuleModel.populate(patient, questionText, values);
         }
-        Question question = survey.getQuestion();
-        Survey surveyNew = QuestionsUtil.getSurveyInstance(question, patient);
+        Question question = QuestionsUtil.getNextQuestion(questionText, patient);
+        Survey surveyNew = QuestionsUtil.getSurveyInstance(question.getText(), patient);
         if (surveyNew.getQuestionText().equals("exit")) {
             //if user has reached the last questionText then fire inference and get the recommendation
             Inference.inferRules(patient);
