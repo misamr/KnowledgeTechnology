@@ -6,6 +6,9 @@ import org.slf4j.LoggerFactory;
 
 import java.util.*;
 
+import static java.util.Map.Entry.comparingByValue;
+import static java.util.stream.Collectors.toMap;
+
 /**
  * inference class
  */
@@ -18,25 +21,36 @@ public class Inference {
      * @param patient patient's stats
      */
     public static void inferRules(Patient patient) {
-        LinkedHashMap<String, Integer> sortedRecommendations = sortByValue(patient.getRecommendations());
+        HashMap<String, Integer> sortedRecommendations = sortByValue(patient.getRecommendations());
         List<String> recommendations = new ArrayList<>();
+        int i = Math.min(sortedRecommendations.entrySet().size(), 3);
+        logger.info("i is ----- " + i);
         for (Map.Entry<String, Integer> entry : sortedRecommendations.entrySet()) {
+            if (i <= 0) {
+                break;
+            }
             recommendations.add(entry.getKey());
+            i--;
         }
         logger.info("inference=" + sortedRecommendations.toString());
         patient.setSpecialists(recommendations);
     }
 
-    private static LinkedHashMap<String, Integer> sortByValue(HashMap<String, Integer> hm) {
-        List<Map.Entry<String, Integer>> list =
-                new LinkedList<>(hm.entrySet());
-        list.sort(Comparator.comparing(Map.Entry::getValue));
-        LinkedHashMap<String, Integer> temp = new LinkedHashMap<>();
-        for (Map.Entry<String, Integer> aa : list) {
-            temp.put(aa.getKey(), aa.getValue());
-        }
-        return temp;
+    private static HashMap<String, Integer> sortByValue(HashMap<String, Integer> hm) {
+        HashMap<String, Integer> sorted = hm
+                .entrySet()
+                .stream()
+                .sorted(comparingByValue())
+                .collect(
+                        toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e2,
+                                LinkedHashMap::new));
+        sorted = sorted
+                .entrySet()
+                .stream()
+                .sorted(Collections.reverseOrder(Map.Entry.comparingByValue()))
+                .collect(
+                        toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e2,
+                                LinkedHashMap::new));
+        return sorted;
     }
-
-
 }

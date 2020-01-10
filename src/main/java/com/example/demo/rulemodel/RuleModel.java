@@ -21,9 +21,11 @@ public class RuleModel {
         Question questionKB = getQuestionKB(question);
         List<String> patientTags = Objects.requireNonNull(questionKB).getAnswers().get(answer);
         for (String tag : patientTags) {
+            if (tag.equals("")) {
+                continue;
+            }
             patient.getRecommendations().put(tag, patient.getRecommendations().getOrDefault(tag, 0) + 1);
         }
-
     }
 
     public static void populate(Patient patient, String question, List<String> answers) {
@@ -31,13 +33,15 @@ public class RuleModel {
         for (String answer : answers) {
             List<String> patientTags = Objects.requireNonNull(questionKB).getAnswers().get(answer);
             for (String tag : patientTags) {
+                if (tag.equals("")) {
+                    continue;
+                }
                 patient.getRecommendations().put(tag, patient.getRecommendations().getOrDefault(tag, 0) + 1);
             }
         }
     }
 
     public static Question getQuestionKB(String question) {
-
         Question questionKB = null;
         for (Question q : questions) {
             if (q.getText().equals(question)) {

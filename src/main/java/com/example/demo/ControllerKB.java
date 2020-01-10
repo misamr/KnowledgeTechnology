@@ -5,7 +5,6 @@ import com.example.demo.domainmodel.Question;
 import com.example.demo.domainmodel.Survey;
 import com.example.demo.rulemodel.Inference;
 import com.example.demo.rulemodel.RuleModel;
-import com.example.demo.utils.KnowledgeBase;
 import com.example.demo.utils.QuestionsUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,7 +18,6 @@ import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
 
 /**
  * This is the controller class
@@ -29,7 +27,6 @@ public class ControllerKB {
 
     private Logger logger = LoggerFactory.getLogger(ControllerKB.class);
     private List<Question> questions;
-    private Map<String, String[]> specialistsMap = null;
 
     @Resource
     private Patient patient; //this is a session scoped variable
@@ -44,7 +41,6 @@ public class ControllerKB {
     @PostConstruct
     public void init() throws Exception {
         questions = QuestionsUtil.initializeQuestions();
-        specialistsMap = KnowledgeBase.getDomainKnowledgeMap();
     }
 
     /**
@@ -57,7 +53,6 @@ public class ControllerKB {
     @GetMapping("/kb")
     public String kbForm(Model model) throws Exception {
         rootSurvey = QuestionsUtil.getInitialSurveyInstance(questions, patient);
-        specialistsMap = KnowledgeBase.getDomainKnowledgeMap();
         patient.init();
         logger.info("Page initiated");
         model.addAttribute("survey", rootSurvey);
@@ -75,10 +70,9 @@ public class ControllerKB {
      * @param survey
      * @param model
      * @return
-     * @throws Exception
      */
     @PostMapping("/kb")
-    public String kbSubmit(@ModelAttribute Survey survey, Model model) throws Exception {
+    public String kbSubmit(@ModelAttribute Survey survey, Model model) {
         /* Returning the appropriate pages after the questionnaire has been completed */
         List<String> values = Arrays.asList(survey.getCheckBoxSelectedValues() == null ?
                 getValues(new String[]{survey.getRadioButtonSelectedValue()}) : getValues(survey.getCheckBoxSelectedValues()));
