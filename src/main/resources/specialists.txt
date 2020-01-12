@@ -1,5 +1,0 @@
-18 to 49 years old=Physiotherapist
-50 years or older=Physiotherapist%Otolaryngologist%Cardiologist
-sore throat=Otolaryngologist
-diabetes=Cardiologist
-hypertension=Cardiologist

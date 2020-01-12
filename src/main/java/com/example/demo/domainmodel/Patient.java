@@ -18,7 +18,6 @@ import java.util.List;
 @Scope(value = "session", proxyMode = ScopedProxyMode.TARGET_CLASS)
 public class Patient implements Serializable {
     private String age;
-    private String gender;
     private List<String> symptoms;
     private List<String> medications;
     private HashMap<String, Integer> recommendations;
@@ -26,7 +25,6 @@ public class Patient implements Serializable {
 
     public void init() {
         this.age = null;
-        this.gender = null;
         this.symptoms = new ArrayList<>();
         this.medications = new ArrayList<>();
         this.recommendations = new HashMap<>();
@@ -39,14 +37,6 @@ public class Patient implements Serializable {
 
     public void setAge(String age) {
         this.age = age;
-    }
-
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
     }
 
     public List<String> getSymptoms() {
