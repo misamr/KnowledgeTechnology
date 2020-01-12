@@ -67,7 +67,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.Application">
+  <component name="RunManager" selected="Application.Application">
     <configuration name="Application" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="com.example.demo.Application" />
       <method v="2">
@@ -83,7 +83,6 @@
     </configuration>
     <list>
       <item itemvalue="Application.Application" />
-      <item itemvalue="Spring Boot.Application" />
     </list>
   </component>
   <component name="SvnConfiguration">
