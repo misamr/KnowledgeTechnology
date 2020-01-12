@@ -26,15 +26,15 @@ Does the patient do sports/exercise regularly?
 
 radio
 yes,Physiotherapist;no,Cardiologist
-Does the patient experience any of the following symptoms? (check all that apply) 1
+Does the patient experience any of the following symptoms? (check all that apply) 
 
 checkbox
 headache,Neurologist,Otolaryngologist;seizures,Neurologist;muscle / joint pain,Neurologist,Physiotherapist;trouble concentrating,Neurologist
-Does the patient experience any of the following symptoms? (check all that apply) 2
+Does the patient suffer from any of the following symptoms? (check all that apply) 
 
 checkbox
 abnormally high body temperature,Otolaryngologist;sore throat,Otolaryngologist,Allergologist;coughing/sneezing,Otolaryngologist,Allergologist;runny nose,Otolaryngologist,Allergologist
-Does the patient experience any of the following symptoms? (check all that apply) 3
+Does the patient experience any of the following problems? (check all that apply) 
 
 checkbox
 diarrhea,Gastroenterologist,Allergologist;nausea/vomiting,Gastroenterologist,Neurologist,Cardiologist;acid reflux,Gastroenterologist;rapid weight loss/gain,Endocrinologist,Gastroenterologist
