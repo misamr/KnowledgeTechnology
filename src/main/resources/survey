@@ -5,7 +5,7 @@ radio
 Does the patient suffer from any of the following long-term conditions? (check all that apply)
 
 checkbox
-diabetes,Cardiologist,Neurologist,Endocrinologist,Gastroenterologist;hypertension,Cardiologist;chronic muscle / joint pain,Physiotherapist,
+diabetes,Cardiologist,Neurologist,Endocrinologist,Gastroenterologist;hypertension,Cardiologist;chronic muscle / joint pain,Physiotherapist
 Has the patient experienced cardiac arrest or stroke in the past?
 
 radio
@@ -25,16 +25,16 @@ yes,Cardiologist;no,
 Does the patient do sports/exercise regularly?
 
 radio
-yes,Physiotherapist;no,Cardiologist,
-Does the patient experience any of the following symptoms? (check all that apply)
-
-checkbox 
-headache,Neurologist,Otolaryngologist;seizures,Neurologist;muscle / joint pain,Neurologist,Physiotherapist;trouble concentrating,Neurologist, 
-Does the patient experience any of the following symptoms? (check all that apply)
+yes,Physiotherapist;no,Cardiologist
+Does the patient experience any of the following symptoms? (check all that apply) 1
 
 checkbox
-abnormally high body temperature,Otolaryngologist;sore throat,Otolaryngologist,Allergologist;coughing/sneezing,Otolaryngologist,Allergologist;runny nose,Otolaryngologist,Allergologist,
-Does the patient experience any of the following symptoms? (check all that apply)
+headache,Neurologist,Otolaryngologist;seizures,Neurologist;muscle / joint pain,Neurologist,Physiotherapist;trouble concentrating,Neurologist
+Does the patient experience any of the following symptoms? (check all that apply) 2
 
 checkbox
-diarrhea,Gastroenterologist,Allergologist;nausea/vomiting,Gastroenterologist,Neurologist,Cardiologist;acid reflux,Gastroenterologist;rapid weight loss/gain,Endocrinologist,Gastroenterologist,
+abnormally high body temperature,Otolaryngologist;sore throat,Otolaryngologist,Allergologist;coughing/sneezing,Otolaryngologist,Allergologist;runny nose,Otolaryngologist,Allergologist
+Does the patient experience any of the following symptoms? (check all that apply) 3
+
+checkbox
+diarrhea,Gastroenterologist,Allergologist;nausea/vomiting,Gastroenterologist,Neurologist,Cardiologist;acid reflux,Gastroenterologist;rapid weight loss/gain,Endocrinologist,Gastroenterologist
