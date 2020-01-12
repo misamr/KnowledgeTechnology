@@ -5,7 +5,7 @@ radio
 Does the patient suffer from any of the following long-term conditions? (check all that apply)
 
 checkbox
-diabetes,Cardiologist,Neurologist,Endocrinologist,Gastroenterologist;hypertension,Cardiologist;chronic muscle / joint pain,Physiotherapist
+diabetes,Cardiologist,Neurologist,Endocrinologist,Gastroenterologist;hypertension,Cardiologist;chronic muscle / joint pain,Physiotherapist;none of these
 Has the patient experienced cardiac arrest or stroke in the past?
 
 radio
@@ -29,12 +29,12 @@ yes,Physiotherapist;no,Cardiologist
 Does the patient experience any of the following symptoms? (check all that apply) 
 
 checkbox
-headache,Neurologist,Otolaryngologist;seizures,Neurologist;muscle / joint pain,Neurologist,Physiotherapist;trouble concentrating,Neurologist
+headache,Neurologist,Otolaryngologist;seizures,Neurologist;muscle / joint pain,Neurologist,Physiotherapist;trouble concentrating,Neurologist;none of these
 Does the patient suffer from any of the following symptoms? (check all that apply) 
 
 checkbox
-abnormally high body temperature,Otolaryngologist;sore throat,Otolaryngologist,Allergologist;coughing/sneezing,Otolaryngologist,Allergologist;runny nose,Otolaryngologist,Allergologist
+abnormally high body temperature,Otolaryngologist;sore throat,Otolaryngologist,Allergologist;coughing/sneezing,Otolaryngologist,Allergologist;runny nose,Otolaryngologist,Allergologist;none of these
 Does the patient experience any of the following problems? (check all that apply) 
 
 checkbox
-diarrhea,Gastroenterologist,Allergologist;nausea/vomiting,Gastroenterologist,Neurologist,Cardiologist;acid reflux,Gastroenterologist;rapid weight loss/gain,Endocrinologist,Gastroenterologist
+diarrhea,Gastroenterologist,Allergologist;nausea/vomiting,Gastroenterologist,Neurologist,Cardiologist;acid reflux,Gastroenterologist;rapid weight loss/gain,Endocrinologist,Gastroenterologist;none of these
