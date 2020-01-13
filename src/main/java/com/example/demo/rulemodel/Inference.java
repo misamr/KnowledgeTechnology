@@ -16,7 +16,7 @@ public class Inference {
     private static Logger logger = LoggerFactory.getLogger(Inference.class);
 
     /**
-     * it populates the recommendations in the patient instance
+     * infers rules based on the tags of options selected
      *
      * @param patient patient's stats
      */
@@ -91,6 +91,12 @@ public class Inference {
         patient.setSpecialists(recommendations);
     }
 
+    /**
+     * helps to sort the specialists to visit in order
+     *
+     * @param hm hashmap of patient stats
+     * @return sorted hashmap
+     */
     private static HashMap<String, Integer> sortByValue(HashMap<String, Integer> hm) {
         HashMap<String, Integer> sorted = hm
                 .entrySet()

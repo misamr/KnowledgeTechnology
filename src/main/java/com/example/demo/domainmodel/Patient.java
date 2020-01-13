@@ -10,9 +10,7 @@ import java.util.HashMap;
 import java.util.List;
 
 /**
- * This the domain model and it is session scoped
- * for each session a new instance is created
- * it is managed by Spring
+ * Domain model of the system
  */
 @Component
 @Scope(value = "session", proxyMode = ScopedProxyMode.TARGET_CLASS)

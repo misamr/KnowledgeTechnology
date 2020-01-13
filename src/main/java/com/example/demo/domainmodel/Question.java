@@ -3,6 +3,9 @@ package com.example.demo.domainmodel;
 import java.util.HashMap;
 import java.util.List;
 
+/**
+ * Class representing question data
+ */
 public class Question {
     private String text;
     private List<String> tags;

@@ -36,22 +36,20 @@ public class ControllerKB {
     /**
      * load the questions and the knowledge base on startup
      *
-     * @throws Exception
      */
     @PostConstruct
-    public void init() throws Exception {
+    public void init() {
         questions = QuestionsUtil.initializeQuestions();
     }
 
     /**
-     * this will load the initial form
+     * Loads the initial form
      *
-     * @param model
-     * @return
-     * @throws Exception
+     * @param model model of the system
+     * @return formed page of options
      */
     @GetMapping("/kb")
-    public String kbForm(Model model) throws Exception {
+    public String kbForm(Model model) {
         rootSurvey = QuestionsUtil.getInitialSurveyInstance(questions, patient);
         patient.init();
         logger.info("Page initiated");
@@ -65,17 +63,17 @@ public class ControllerKB {
     }
 
     /**
-     * it will load all the subsequent questions and the final recommendations
+     * Loads all the subsequent questions and the final recommendations
      *
-     * @param survey
-     * @param model
-     * @return
+     * @param survey set of questions to be asked
+     * @param model model of the system
+     * @return sends to the next page of survey or results page
      */
     @PostMapping("/kb")
     public String kbSubmit(@ModelAttribute Survey survey, Model model) {
         /* Returning the appropriate pages after the questionnaire has been completed */
         List<String> values = Arrays.asList(survey.getCheckBoxSelectedValues() == null ?
-                getValues(new String[]{survey.getRadioButtonSelectedValue()}) : getValues(survey.getCheckBoxSelectedValues()));
+                new String[]{survey.getRadioButtonSelectedValue()} : survey.getCheckBoxSelectedValues());
 
         String questionText = survey.getQuestionText();
         if (values.size() == 1) {
@@ -98,18 +96,5 @@ public class ControllerKB {
             model.addAttribute("displayType", surveyNew.getDisplayType());
             return "home";
         }
-
-    }
-
-    /**
-     * function to get the value selected by the user
-     * for radio buttons : single value
-     * for checkboxes : multiple values returned
-     *
-     * @param selectedValue selected values from options
-     * @return retVal
-     */
-    private String[] getValues(String[] selectedValue) {
-        return selectedValue;
     }
 }
