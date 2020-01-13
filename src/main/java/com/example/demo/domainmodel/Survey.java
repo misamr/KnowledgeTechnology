@@ -3,22 +3,38 @@ package com.example.demo.domainmodel;
 import java.util.Arrays;
 
 public class Survey {
-
-    private String question;
-    private String[]  options;
-    private String[] optionsValues;
-    private OptionTextValue[] optionTextValues;
+    private Question question;
+    private String questionText;
+    private String[] options;
+    private String[] checkBoxSelectedValues;
     private String radioButtonSelectedValue;
+    private String checkBoxSelectedValue;
     private String displayType;
-
-    public String getQuestion() {
+    private OptionTextValue[] optionTextValue;
+    public Question getQuestion() {
         return question;
     }
 
-    public void setQuestion(String question) {
+    public void setQuestion(Question question) {
         this.question = question;
     }
 
+
+    public String getCheckBoxSelectedValue() {
+        return checkBoxSelectedValue;
+    }
+
+    public void setCheckBoxSelectedValue(String checkBoxSelectedValue) {
+        this.checkBoxSelectedValue = checkBoxSelectedValue;
+    }
+
+    public String getQuestionText() {
+        return questionText;
+    }
+
+    public void setQuestionText(String question) {
+        this.questionText = question;
+    }
 
 
     public String getRadioButtonSelectedValue() {
@@ -33,6 +49,14 @@ public class Survey {
         return options;
     }
 
+    public String[] getCheckBoxSelectedValues() {
+        return checkBoxSelectedValues;
+    }
+
+    public void setCheckBoxSelectedValues(String[] checkBoxSelectedValues) {
+        this.checkBoxSelectedValues = checkBoxSelectedValues;
+    }
+
     public void setOptions(String[] options) {
         this.options = options;
     }
@@ -45,30 +69,21 @@ public class Survey {
         this.displayType = displayType;
     }
 
-    public String[] getOptionsValues() {
-        return optionsValues;
+    public OptionTextValue[] getOptionTextValue() {
+        return optionTextValue;
     }
 
-    public void setOptionsValues(String[] optionsValues) {
-        this.optionsValues = optionsValues;
-    }
-
-    public OptionTextValue[] getOptionTextValues() {
-        return optionTextValues;
-    }
-
-    public void setOptionTextValues(OptionTextValue[] optionTextValues) {
-        this.optionTextValues = optionTextValues;
+    public void setOptionTextValue(OptionTextValue[] optionTextValue) {
+        this.optionTextValue = optionTextValue;
     }
 
     @Override
     public String toString() {
         return "Survey{" +
-                "question='" + question + '\'' +
-                ", options=" + Arrays.toString(options) +
-                ", optionsValues=" + Arrays.toString(optionsValues) +
-                ", optionTextValues=" + Arrays.toString(optionTextValues) +
+                "question='" + questionText + '\'' +
+                ", options=" + options +
                 ", radioButtonSelectedValue='" + radioButtonSelectedValue + '\'' +
+                ", checkBoxSelectedValues='" + Arrays.toString(checkBoxSelectedValues) + '\'' +
                 ", displayType='" + displayType + '\'' +
                 '}';
     }

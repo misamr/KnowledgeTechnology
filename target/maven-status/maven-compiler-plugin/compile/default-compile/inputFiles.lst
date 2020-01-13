@@ -1,11 +1,9 @@
-C:\Users\luke\Documents\0 - AI BACHELOR\0 - year 3\github\KnowledgeTechnology\src\main\java\com\example\demo\domainmodel\Survey.java
-C:\Users\luke\Documents\0 - AI BACHELOR\0 - year 3\github\KnowledgeTechnology\src\main\java\com\example\demo\rulemodel\Inference.java
-C:\Users\luke\Documents\0 - AI BACHELOR\0 - year 3\github\KnowledgeTechnology\src\main\java\com\example\demo\rulemodel\RuleModel.java
-C:\Users\luke\Documents\0 - AI BACHELOR\0 - year 3\github\KnowledgeTechnology\src\main\java\com\example\demo\utils\KnowledgeBase.java
-C:\Users\luke\Documents\0 - AI BACHELOR\0 - year 3\github\KnowledgeTechnology\src\main\java\com\example\demo\utils\QuestionsUtil.java
-C:\Users\luke\Documents\0 - AI BACHELOR\0 - year 3\github\KnowledgeTechnology\src\main\java\com\example\demo\utils\CustomVertex.java
-C:\Users\luke\Documents\0 - AI BACHELOR\0 - year 3\github\KnowledgeTechnology\src\main\java\com\example\demo\domainmodel\OptionTextValue.java
-C:\Users\luke\Documents\0 - AI BACHELOR\0 - year 3\github\KnowledgeTechnology\src\main\java\com\example\demo\domainmodel\Patient.java
-C:\Users\luke\Documents\0 - AI BACHELOR\0 - year 3\github\KnowledgeTechnology\src\main\java\com\example\demo\utils\RelationshipEdge.java
-C:\Users\luke\Documents\0 - AI BACHELOR\0 - year 3\github\KnowledgeTechnology\src\main\java\com\example\demo\Application.java
-C:\Users\luke\Documents\0 - AI BACHELOR\0 - year 3\github\KnowledgeTechnology\src\main\java\com\example\demo\ControllerKB.java
+/Users/michaela/Desktop/KnowledgeTechnology/src/main/java/com/example/demo/rulemodel/RuleModel.java
+/Users/michaela/Desktop/KnowledgeTechnology/src/main/java/com/example/demo/domainmodel/Survey.java
+/Users/michaela/Desktop/KnowledgeTechnology/src/main/java/com/example/demo/utils/QuestionsUtil.java
+/Users/michaela/Desktop/KnowledgeTechnology/src/main/java/com/example/demo/rulemodel/Inference.java
+/Users/michaela/Desktop/KnowledgeTechnology/src/main/java/com/example/demo/domainmodel/Question.java
+/Users/michaela/Desktop/KnowledgeTechnology/src/main/java/com/example/demo/Application.java
+/Users/michaela/Desktop/KnowledgeTechnology/src/main/java/com/example/demo/ControllerKB.java
+/Users/michaela/Desktop/KnowledgeTechnology/src/main/java/com/example/demo/domainmodel/OptionTextValue.java
+/Users/michaela/Desktop/KnowledgeTechnology/src/main/java/com/example/demo/domainmodel/Patient.java

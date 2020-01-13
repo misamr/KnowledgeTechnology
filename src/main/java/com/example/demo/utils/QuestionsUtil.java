@@ -1,91 +1,121 @@
 package com.example.demo.utils;
 
-import java.io.StringReader;
-import java.nio.charset.StandardCharsets;
-import java.util.List;
-import java.util.Set;
-import java.util.concurrent.atomic.AtomicInteger;
-
-import org.apache.commons.io.IOUtils;
-import org.jgrapht.Graph;
-import org.jgrapht.graph.*;
-import org.jgrapht.io.*;
+import com.example.demo.ControllerKB;
 import com.example.demo.domainmodel.OptionTextValue;
+import com.example.demo.domainmodel.Patient;
+import com.example.demo.domainmodel.Question;
 import com.example.demo.domainmodel.Survey;
+import org.apache.commons.io.IOUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.*;
 
-/**
- * this class loads the questionnaire from questionsGraphUP.gml
- */
+
 public final class QuestionsUtil {
+    private static Logger logger = LoggerFactory.getLogger(ControllerKB.class);
 
-    private static String getQuestionsGraph() throws Exception {
-        Resource resource = new ClassPathResource("questionsGraphUP.gml");
-        List<String> list = IOUtils.readLines(resource.getInputStream(), StandardCharsets.UTF_8);
-        return String.join("", list);
-
+    public static List<Question> initializeQuestions() {
+        List<Question> questions = new ArrayList<>();
+        Resource resource = new ClassPathResource("survey");
+        List<String> list = null;
+        try {
+            list = IOUtils.readLines(resource.getInputStream(), StandardCharsets.UTF_8);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        assert list != null;
+        for (int i = 0; i < list.size(); i += 4) {
+            String question = list.get(i);
+            List<String> tags = Arrays.asList(list.get(i + 1).split(","));
+            String questionType = list.get(i + 2);
+            String[] answers = list.get(i + 3).split(";");
+            HashMap<String, List<String>> answersAndTags = new HashMap<>();
+            for (String s : answers) {
+                List<String> answersTagsTemp = Arrays.asList(s.split(","));
+                String answer = answersTagsTemp.get(0);
+                List<String> answersAndTagsList = new ArrayList<>(answersTagsTemp.subList(1, answersTagsTemp.size()));
+                answersAndTags.put(answer, answersAndTagsList);
+            }
+            questions.add(new Question(question, tags, answersAndTags, questionType));
+        }
+        return questions;
     }
 
-    /**
-     * load the graph
-     *
-     * @return
-     * @throws Exception
-     */
-    public static Graph<CustomVertex, RelationshipEdge> getGraph() throws Exception {
-
-        Graph<CustomVertex, RelationshipEdge> g  = new DirectedPseudograph<>(RelationshipEdge.class);
-
-        VertexProvider<CustomVertex> vp = (id, attributes) -> {
-            return new CustomVertex(id,attributes.get("label").toString(), attributes.get("display").toString() );
-        };
-
-
-        EdgeProvider<CustomVertex, RelationshipEdge> ep = (from, to, label, attributes) -> {
-
-            RelationshipEdge edge = new RelationshipEdge(attributes.get("label").toString());
-            return edge;
-        };
-
-        GmlImporter<CustomVertex, RelationshipEdge> importer = new GmlImporter<>(vp, ep);
-
-        importer.importGraph(g, new StringReader(getQuestionsGraph()));
-
-        return g;
+    public static Question getNextQuestion(String question, Patient patient) {
+        List<Question> questions = initializeQuestions();
+        Question next = getNextQuestionElement(question, questions);
+        for (String tag : patient.getRecommendations().keySet()) {
+            if (next.getTags().contains(tag) || (next.getTags().size() == 1 && next.getTags().get(0).equals(""))) {
+                break;
+            } else {
+                next = getNextQuestionElement(next.getText(), questions);
+            }
+        }
+        return next;
     }
 
-    /**
-     * get a specific node for the specified custom vertex from the graph
-     *
-     * @param g
-     * @param cv
-     * @return
-     * @throws Exception
-     */
-    public static Survey getSurveyInstance(Graph<CustomVertex, RelationshipEdge> g, CustomVertex cv) throws Exception{
+    private static Question getNextQuestionElement(String question, List<Question> questions) {
+        Question next = null;
+        for (int i = 0; i < questions.size() - 1; i++) {
+            Question q = questions.get(i);
+            if (q.getText().equals(question)) {
+                next = questions.get(i + 1);
+                break;
+            }
+        }
+        return next;
+    }
+
+
+    public static Survey getSurveyInstance(String question, Patient patient) {
         Survey survey = new Survey();
-
-        Set<RelationshipEdge> edges = g.outgoingEdgesOf(cv);
-        String[] options = new String[edges.size()];
-        String[] optionsValues = new String[edges.size()];
-        OptionTextValue[]  optV = new OptionTextValue[edges.size()];
-        final AtomicInteger indexHolder = new AtomicInteger();
-        edges.forEach(element -> {
-            int i = indexHolder.getAndIncrement();
-            options[i] = element.getLabel();
-            optionsValues[i] = element.getLabel() + "x";
-            String value  = cv.getLabel() + "%" + options[i] + "%" + g.getEdgeTarget(element).getId() + "%" + g.getEdgeTarget(element).getLabel()
-                    + "%"  + g.getEdgeTarget(element).getDisplay(); //when you click on 'no' what should be the next value (concatenate)
-            optV[i] = new OptionTextValue(element.getLabel(),value );
-        });
-        survey.setOptions(options);
-        survey.setOptionsValues(optionsValues);
-        survey.setOptionTextValues(optV);
-        survey.setQuestion(cv.getLabel());
-        survey.setDisplayType(cv.getDisplay());
+        try {
+            Question next = getNextQuestion(question, patient);
+            String[] answersString = getSelectedAnswers(next);
+            survey.setQuestion(next);
+            survey.setOptions(answersString);
+            survey.setQuestionText(next.getText());
+            survey.setDisplayType(next.getQuestionType());
+            String[] options = survey.getOptions();
+            OptionTextValue[] optionTextValues = new OptionTextValue[options.length];
+            for (int i = 0; i < options.length; i++) {
+                optionTextValues[i] = new OptionTextValue(next.getText(), options[i]);
+            }
+            survey.setOptionTextValue(optionTextValues);
+        } catch (NullPointerException e) {
+            survey.setQuestionText("exit");
+        }
         return survey;
+    }
+
+    public static Survey getInitialSurveyInstance(List<Question> questions, Patient patient) {
+        Survey survey = new Survey();
+        Question question = questions.get(0);
+        String[] answersString = getSelectedAnswers(question);
+        survey.setQuestion(question);
+        survey.setOptions(answersString);
+        survey.setQuestionText(question.getText());
+        survey.setDisplayType(question.getQuestionType());
+        String[] options = survey.getOptions();
+        OptionTextValue[] optionTextValues = new OptionTextValue[options.length];
+        for (int i = 0; i < options.length; i++) {
+            optionTextValues[i] = new OptionTextValue(question.getText(), options[i]);
+        }
+        survey.setOptionTextValue(optionTextValues);
+        return survey;
+    }
+
+    private static String[] getSelectedAnswers(Question question) {
+        List<String> answers = new ArrayList<>(question.getAnswers().keySet());
+        String[] answersString = new String[answers.size()];
+        for (int i = 0; i < answers.size(); i++) {
+            answersString[i] = answers.get(i);
+        }
+        return answersString;
     }
 }
