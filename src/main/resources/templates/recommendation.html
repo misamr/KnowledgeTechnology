@@ -76,10 +76,13 @@
         <div class="center">
                 <h2>Recommendation</h2>
             <ul>
-                <li th:each="item : ${specialists}" th:text="${item}"> </li>
+                <li th:each="item : ${specialists}"
+                    th:text="${item}" th:switch="${item}">
+                </li>
             </ul>
-
+y
         </div>
+
     </div>
     <div class="btn-group" style="position:fixed;right:0px;top:0px;">
         <a href="/kb" class="button2" onclick="location.href='/kb';"> Reset </a>
