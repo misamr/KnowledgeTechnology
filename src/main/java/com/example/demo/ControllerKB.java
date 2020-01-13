@@ -106,13 +106,10 @@ public class ControllerKB {
      * for radio buttons : single value
      * for checkboxes : multiple values returned
      *
-     * @param selectedValue
+     * @param selectedValue selected values from options
      * @return retVal
      */
     private String[] getValues(String[] selectedValue) {
-        logger.info("the selected values are: " + Arrays.toString(selectedValue));
-
         return selectedValue;
-
     }
 }

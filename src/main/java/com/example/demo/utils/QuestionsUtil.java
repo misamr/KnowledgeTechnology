@@ -49,11 +49,8 @@ public final class QuestionsUtil {
     public static Question getNextQuestion(String question, Patient patient) {
         List<Question> questions = initializeQuestions();
         Question next = getNextQuestionElement(question, questions);
-        logger.info("question " + next.getText() + "patient " + patient.getRecommendations().keySet());
         for (String tag : patient.getRecommendations().keySet()) {
-            logger.info("Patient: " + tag + " Question: " + next.getTags() + next.getText() + next.getTags().size());
             if (next.getTags().contains(tag) || (next.getTags().size() == 1 && next.getTags().get(0).equals(""))) {
-                logger.info("FIRE!!!!!!!!!!!!!!!!!!");
                 break;
             } else {
                 next = getNextQuestionElement(next.getText(), questions);
@@ -79,7 +76,6 @@ public final class QuestionsUtil {
         Survey survey = new Survey();
         try {
             Question next = getNextQuestion(question, patient);
-            logger.info("Patient data UTILS" + patient.getRecommendations().keySet());
             String[] answersString = getSelectedAnswers(next);
             survey.setQuestion(next);
             survey.setOptions(answersString);
