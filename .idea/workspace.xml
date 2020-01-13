@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1d5efd07-7c22-4774-bb0e-c8e1bb4b6537" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/survey" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/survey" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ai-kb.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ai-kb.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/rulemodel/Inference.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/rulemodel/Inference.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/Application.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/Application.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/ControllerKB.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/ControllerKB.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/domainmodel/OptionTextValue.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/domainmodel/OptionTextValue.class" afterDir="false" />
@@ -13,14 +15,8 @@
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/rulemodel/Inference.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/rulemodel/Inference.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/rulemodel/RuleModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/rulemodel/RuleModel.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/utils/QuestionsUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/utils/QuestionsUtil.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/survey" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/survey" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/com/example/demo/DemoApplicationTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/example/demo/DemoApplicationTests.class" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -46,6 +42,7 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="MERGE" />
   </component>
   <component name="ProjectId" id="1UpzLHo2uUThh1Ek0gzc9DGmpbT" />
   <component name="ProjectViewState">
@@ -65,25 +62,19 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="$USER_HOME$/Downloads/KnowledgeTechnology-master" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/resources" />
     </key>
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
-  <component name="RunManager" selected="Application.Application">
+  <component name="RunManager" selected="Spring Boot.Application">
     <configuration name="Application" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="com.example.demo.Application" />
       <method v="2">
@@ -99,20 +90,34 @@
     </configuration>
     <list>
       <item itemvalue="Application.Application" />
+      <item itemvalue="Spring Boot.Application" />
     </list>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="bbf9ce29-67ee-43dd-998d-11bbdbc635f3" name="Default Changelist" comment="" />
+      <changelist id="1d5efd07-7c22-4774-bb0e-c8e1bb4b6537" name="Default Changelist" comment="" />
       <created>1576068266366</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1576068266366</updated>
       <workItem from="1576533635326" duration="751000" />
       <workItem from="1578649520247" duration="5136000" />
+      <workItem from="1578876029786" duration="749000" />
     </task>
     <task id="LOCAL-00001" summary="backend">
       <created>1576068313594</created>
@@ -254,9 +259,67 @@
     <option name="LAST_COMMIT_MESSAGE" value="survey questions changed" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="227" y="42" key="CommitChangelistDialog2" />
-    <state x="227" y="42" key="CommitChangelistDialog2/0.23.1440.829@0.23.1440.829" />
-    <state x="397" y="270" key="com.intellij.ide.util.TipDialog" />
-    <state x="397" y="270" key="com.intellij.ide.util.TipDialog/0.23.1440.829@0.23.1440.829" />
+    <state x="227" y="42" key="CommitChangelistDialog2" timestamp="1578856902053" />
+    <state x="227" y="42" key="CommitChangelistDialog2/0.23.1440.829@0.23.1440.829" timestamp="1578856902054" />
+    <state width="1398" height="204" key="GridCell.Tab.0.bottom" timestamp="1578877012523">
+      <screen x="0" y="23" width="1440" height="797" />
+    </state>
+    <state width="1398" height="204" key="GridCell.Tab.0.bottom/0.23.1440.797@0.23.1440.797" timestamp="1578877012523" />
+    <state width="1398" height="204" key="GridCell.Tab.0.center" timestamp="1578877012522">
+      <screen x="0" y="23" width="1440" height="797" />
+    </state>
+    <state width="1398" height="204" key="GridCell.Tab.0.center/0.23.1440.797@0.23.1440.797" timestamp="1578877012522" />
+    <state width="1398" height="204" key="GridCell.Tab.0.left" timestamp="1578877012521">
+      <screen x="0" y="23" width="1440" height="797" />
+    </state>
+    <state width="1398" height="204" key="GridCell.Tab.0.left/0.23.1440.797@0.23.1440.797" timestamp="1578877012521" />
+    <state width="1398" height="204" key="GridCell.Tab.0.right" timestamp="1578877012522">
+      <screen x="0" y="23" width="1440" height="797" />
+    </state>
+    <state width="1398" height="204" key="GridCell.Tab.0.right/0.23.1440.797@0.23.1440.797" timestamp="1578877012522" />
+    <state width="1398" height="204" key="GridCell.Tab.1.bottom" timestamp="1578877012527">
+      <screen x="0" y="23" width="1440" height="797" />
+    </state>
+    <state width="1398" height="204" key="GridCell.Tab.1.bottom/0.23.1440.797@0.23.1440.797" timestamp="1578877012527" />
+    <state width="1398" height="204" key="GridCell.Tab.1.center" timestamp="1578877012526">
+      <screen x="0" y="23" width="1440" height="797" />
+    </state>
+    <state width="1398" height="204" key="GridCell.Tab.1.center/0.23.1440.797@0.23.1440.797" timestamp="1578877012526" />
+    <state width="1398" height="204" key="GridCell.Tab.1.left" timestamp="1578877012525">
+      <screen x="0" y="23" width="1440" height="797" />
+    </state>
+    <state width="1398" height="204" key="GridCell.Tab.1.left/0.23.1440.797@0.23.1440.797" timestamp="1578877012525" />
+    <state width="1398" height="204" key="GridCell.Tab.1.right" timestamp="1578877012526">
+      <screen x="0" y="23" width="1440" height="797" />
+    </state>
+    <state width="1398" height="204" key="GridCell.Tab.1.right/0.23.1440.797@0.23.1440.797" timestamp="1578877012526" />
+    <state width="1398" height="253" key="GridCell.Tab.2.bottom" timestamp="1578858615223">
+      <screen x="0" y="23" width="1440" height="797" />
+    </state>
+    <state width="1398" height="253" key="GridCell.Tab.2.bottom/0.23.1440.797@0.23.1440.797" timestamp="1578858615223" />
+    <state width="1398" height="253" key="GridCell.Tab.2.center" timestamp="1578858615223">
+      <screen x="0" y="23" width="1440" height="797" />
+    </state>
+    <state width="1398" height="253" key="GridCell.Tab.2.center/0.23.1440.797@0.23.1440.797" timestamp="1578858615223" />
+    <state width="1398" height="253" key="GridCell.Tab.2.left" timestamp="1578858615222">
+      <screen x="0" y="23" width="1440" height="797" />
+    </state>
+    <state width="1398" height="253" key="GridCell.Tab.2.left/0.23.1440.797@0.23.1440.797" timestamp="1578858615222" />
+    <state width="1398" height="253" key="GridCell.Tab.2.right" timestamp="1578858615223">
+      <screen x="0" y="23" width="1440" height="797" />
+    </state>
+    <state width="1398" height="253" key="GridCell.Tab.2.right/0.23.1440.797@0.23.1440.797" timestamp="1578858615223" />
+    <state x="397" y="270" key="com.intellij.ide.util.TipDialog" timestamp="1578876029943">
+      <screen x="0" y="23" width="1440" height="797" />
+    </state>
+    <state x="397" y="270" key="com.intellij.ide.util.TipDialog/0.23.1440.797@0.23.1440.797" timestamp="1578876029943" />
+    <state x="397" y="270" key="com.intellij.ide.util.TipDialog/0.23.1440.829@0.23.1440.829" timestamp="1578856902054" />
+    <state x="509" y="345" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1578876745836">
+      <screen x="0" y="23" width="1440" height="797" />
+    </state>
+    <state x="509" y="345" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1440.797@0.23.1440.797" timestamp="1578876745836" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/demo$Application.ic" NAME="Application Coverage Results" MODIFIED="1578858659294" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
