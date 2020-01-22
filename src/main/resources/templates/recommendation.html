@@ -67,6 +67,33 @@
 				  transform: translate(-50%, -10%);
 	    }
 
+	    .collapsible {
+  background-color: white;
+  color: #4f987a;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 22px;
+  font-family: 'Montserrat';
+
+}
+
+.active, .collapsible:hover {
+  background-color: #3e765f;
+  color:white;
+}
+
+.content {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+  background-color: #f1f1f1;
+  font-size:15px;
+}
+
     </style>
     <title>Plan</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -76,9 +103,79 @@
         <div class="center">
                 <h2>Recommendation</h2>
             <ul>
-                <li th:each="item : ${specialists}"
+                <tr th:each="item: ${specialists}">
+                    <div th:switch="${item}">
+
+
+                        <div th:case="'Cardiologist'">
+                            <button type="button" class="collapsible">Cardiologist</button>
+                            <div class="content">
+                                <p>
+                                    Cardiologist specializes in diagnosing and treating diseases of the cardiovascular system, such as arrythmias, coronary heart disease, atherosclerosis or high blood cholesterol. Patients diagnosed with heart disease or patients with a high risk of developing heart disease based on their medical history (patients over 50 years of age, obese patients, smokers, patients with hypertension) should visit a cardiologist.
+                                </p>
+                            </div>
+                        </div>
+                        <div th:case="'Neurologist'">
+                            <button type="button" class="collapsible">Neurologist</button>
+                            <div class="content">
+                                <p>
+                                    Neurologist specializes in treating diseases of the central and peripheral nervous system. Patients experiencing muscle weakness, dizziness, seizures, severe headaches or patients who have suffered damage of the nervous system (such as stroke) should visit a neurologist for further diagnostics and treatment.
+                                </p>
+                            </div>
+                        </div>
+                        <div th:case="'Otolaryngologist'">
+                            <button type="button" class="collapsible">Otolaryngologist</button>
+                            <div class="content">
+                                <p>
+                                    Otolaryngologist specializes in treating diseases of the ear, nose, throat, and related bodily structures. Most commonly, otolaryngologists treat chronic sinusitis (demonstrated by swollen and inflamed sinuses - nose and head), laryngeal diseases (common symptoms include sore throat), and ear pain. Treatment of allergies which affect the sense of smell may require cooperation of both otolaryngologist and allergologist.
+                                </p>
+                            </div>
+                        </div>
+                        <div th:case="'Physiotherapist'">
+                            <button type="button" class="collapsible">Physiotherapist</button>
+                            <div class="content">
+                                <p>
+                                    Physiotherapy helps with the management of long-term conditions related to the musculoskeletal and nervous system (such as arthritis), as well as sudden injuries (especially people who do sports are at risk). A wide range of patients may benefit from visiting a physiotherapist, and patients physiotherapy is typically indicated as a complementary treatment along with other medical procedures.
+                                </p>
+                            </div>
+                        </div>
+                        <div th:case="'Gastroenterologist'">
+                            <button type="button" class="collapsible">Gastroenterologist</button>
+                            <div class="content">
+                                <p>
+                                    Gastroenterologist specializes in treating conditions of the gastrointestinal tract and liver. Diseases treated by gastroenterologists typically include peptic ulcer disease, nutritional problems or colon polyps. You should consider referring a patient to gastroenterologist if the patient suffers from diarrhea, vomiting, acid reflux, or has recently experienced rapid weight gain / loss.
+                                </p>
+                            </div>
+                        </div>
+                        <div th:case="'Allergologist'">
+                            <button type="button" class="collapsible">Allergologist</button>
+                            <div class="content">
+                                <p>
+                                    Allergologist is trained to prevent, diagnose and manage allergic disease (such as food allergies or asthma). In many cases, allergies may demonstrate very subtly (runny nose, sore throat, coughing / sneezing) and are often misdiagnosed.
+                                </p>
+                            </div>
+                        </div>
+                        <div th:case="'Endocrinologist'">
+                            <button type="button" class="collapsible">Endocrinologist</button>
+                            <div class="content">
+                                <p>
+                                    Endocrinologists are experts in glands that are responsible for producing and releasing hormones into the bloodstream (which coordinate processes ranging from metabolism to cell growth). One of the most common diseases treated by endocrinologists is hyperthyroidism (common symptoms include sudden weight loss or gain, and fatigue). Furthermore, endocrinologists are usually involved in the treatment of a range of diseases, including diabetes, osteoporosis or metabolic disorders.</p>
+                            </div>
+                        </div>
+
+
+
+
+
+
+
+
+                    </div>
+                </tr>
+
+                <!--<li th:each="item : ${specialists}"
                     th:text="${item}" th:switch="${item}">
-                </li>
+                </li>-->
             </ul>
         </div>
 
@@ -88,5 +185,22 @@
         <a href="/index.html" class="button2" onclick="location.href='/index.html';"> Home </a>
         <a href="/about.html" class="button2" onclick="location.href='/about.html';"> About </a>
     </div>
+
+    <script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
+</script>
 </body>
 </html>

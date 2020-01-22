@@ -3,8 +3,16 @@
   <component name="ChangeListManager">
     <list default="true" id="1d5efd07-7c22-4774-bb0e-c8e1bb4b6537" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/rulemodel/Inference.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/rulemodel/Inference.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/survey" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/survey" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/recommendation.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/recommendation.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ai-kb-0.1.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/ai-kb-0.1.0.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ai-kb-0.1.0.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/target/ai-kb-0.1.0.jar.original" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/recommendation.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/recommendation.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
     </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -62,7 +70,19 @@
       <recent name="$PROJECT_DIR$/src/main/resources" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.Application">
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.Application">
     <configuration name="Application" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="com.example.demo.Application" />
       <method v="2">
@@ -78,20 +98,7 @@
     </configuration>
     <list>
       <item itemvalue="Application.Application" />
-      <item itemvalue="Spring Boot.Application" />
     </list>
-  </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <treeState>
-            <expand />
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
-    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
