@@ -18,6 +18,7 @@ import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Queue;
 
 /**
  * This is the controller class
@@ -26,11 +27,11 @@ import java.util.List;
 public class ControllerKB {
 
     private Logger logger = LoggerFactory.getLogger(ControllerKB.class);
-    private List<Question> questions;
+    private Queue<Question> questions;
 
     @Resource
     private Patient patient; //this is a session scoped variable
-
+    private List<Question> coveredQuestions;
     private Survey rootSurvey;
 
     /**
@@ -74,16 +75,18 @@ public class ControllerKB {
         /* Returning the appropriate pages after the questionnaire has been completed */
         List<String> values = Arrays.asList(survey.getCheckBoxSelectedValues() == null ?
                 new String[]{survey.getRadioButtonSelectedValue()} : survey.getCheckBoxSelectedValues());
-
-        String questionText = survey.getQuestionText();
+        Question currentQuestion = questions.peek();
+        logger.info(String.valueOf(currentQuestion.getProblems().get(0).getComplaint().equals("")));
         if (values.size() == 1) {
-            RuleModel.populate(patient, questionText, values.get(0));
+            RuleModel.populate(patient, currentQuestion, questions, values.get(0));
         } else {
-            RuleModel.populate(patient, questionText, values);
+            RuleModel.populate(patient, currentQuestion, questions, values);
         }
         logger.info("Patient data " + patient.getRecommendations().keySet());
-        Question question = RuleModel.getQuestionKB(questionText);
-        Survey surveyNew = QuestionsUtil.getSurveyInstance(question.getText(), patient);
+        questions.remove();
+        Question nextQuestion = questions.peek();
+        assert nextQuestion != null;
+        Survey surveyNew = QuestionsUtil.getSurveyInstance(nextQuestion, patient);
         if (surveyNew.getQuestionText().equals("exit")) {
             Inference.inferRules(patient);
             model.addAttribute("specialists", patient.getSpecialists());

@@ -1,10 +1,7 @@
 package com.example.demo.utils;
 
 import com.example.demo.ControllerKB;
-import com.example.demo.domainmodel.OptionTextValue;
-import com.example.demo.domainmodel.Patient;
-import com.example.demo.domainmodel.Question;
-import com.example.demo.domainmodel.Survey;
+import com.example.demo.domainmodel.*;
 import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,8 +16,8 @@ import java.util.*;
 public final class QuestionsUtil {
     private static Logger logger = LoggerFactory.getLogger(ControllerKB.class);
 
-    public static List<Question> initializeQuestions() {
-        List<Question> questions = new ArrayList<>();
+    public static Queue<Question> initializeQuestions() {
+        Queue<Question> questions = new ArrayDeque<>();
         Resource resource = new ClassPathResource("survey");
         List<String> list = null;
         try {
@@ -29,35 +26,42 @@ public final class QuestionsUtil {
             e.printStackTrace();
         }
         assert list != null;
-        for (int i = 0; i < list.size(); i += 4) {
+        for (int i = 0; i < list.size(); i += 5) {
             String question = list.get(i);
-            List<String> tags = Arrays.asList(list.get(i + 1).split(","));
+            List<String> preconditions = Arrays.asList(list.get(i+1).split(";"));
+            List<Problem> problems = parsePreconditions(preconditions);
             String questionType = list.get(i + 2);
-            String[] answers = list.get(i + 3).split(";");
-            HashMap<String, List<String>> answersAndTags = new HashMap<>();
-            for (String s : answers) {
-                List<String> answersTagsTemp = Arrays.asList(s.split(","));
-                String answer = answersTagsTemp.get(0);
-                List<String> answersAndTagsList = new ArrayList<>(answersTagsTemp.subList(1, answersTagsTemp.size()));
-                answersAndTags.put(answer, answersAndTagsList);
-            }
-            questions.add(new Question(question, tags, answersAndTags, questionType));
+            List<String> answers = Arrays.asList(list.get(i + 3).split(","));
+            questions.add(new Question(question, answers, questionType, problems));
         }
         return questions;
     }
 
-    public static Question getNextQuestion(String question, Patient patient) {
-        List<Question> questions = initializeQuestions();
-        Question next = getNextQuestionElement(question, questions);
-        for (String tag : patient.getRecommendations().keySet()) {
-            if (next.getTags().contains(tag) || (next.getTags().size() == 1 && next.getTags().get(0).equals(""))) {
-                break;
-            } else {
-                next = getNextQuestionElement(next.getText(), questions);
+    private static List<Problem> parsePreconditions(List<String> preconditions) {
+        if (preconditions.size() == 0) return new ArrayList<>();
+        List<Problem> problems = new ArrayList<>();
+        for (int i = 0; i < preconditions.size(); i++) {
+            List<String> complaint = Arrays.asList(preconditions.get(0).split(","));
+            Problem problem = new Problem(complaint.get(0));
+            if (i == 0) {
+                problem.setMajor(true);
             }
+            for (String s : complaint) {
+                List<String> supportive = Arrays.asList(s.split(":"));
+                if (supportive.get(0).equals("frequency")) {
+                    problem.setFrequency(supportive.get(1));
+                } else if (supportive.get(0).equals("severity")) {
+                    problem.setSeverity(supportive.get(1));
+                }
+            }
+            problems.add(problem);
         }
-        return next;
+
+
+        return problems;
     }
+
+
 
     private static Question getNextQuestionElement(String question, List<Question> questions) {
         Question next = null;
@@ -72,19 +76,18 @@ public final class QuestionsUtil {
     }
 
 
-    public static Survey getSurveyInstance(String question, Patient patient) {
+    public static Survey getSurveyInstance(Question question, Patient patient) {
         Survey survey = new Survey();
         try {
-            Question next = getNextQuestion(question, patient);
-            String[] answersString = getSelectedAnswers(next);
-            survey.setQuestion(next);
+            String[] answersString = getSelectedAnswers(question);
+            survey.setQuestion(question);
             survey.setOptions(answersString);
-            survey.setQuestionText(next.getText());
-            survey.setDisplayType(next.getQuestionType());
+            survey.setQuestionText(question.getText());
+            survey.setDisplayType(question.getQuestionType());
             String[] options = survey.getOptions();
             OptionTextValue[] optionTextValues = new OptionTextValue[options.length];
             for (int i = 0; i < options.length; i++) {
-                optionTextValues[i] = new OptionTextValue(next.getText(), options[i]);
+                optionTextValues[i] = new OptionTextValue(question.getText(), options[i]);
             }
             survey.setOptionTextValue(optionTextValues);
         } catch (NullPointerException e) {
@@ -93,10 +96,10 @@ public final class QuestionsUtil {
         return survey;
     }
 
-    public static Survey getInitialSurveyInstance(List<Question> questions, Patient patient) {
+    public static Survey getInitialSurveyInstance(Queue<Question> questions, Patient patient) {
         Survey survey = new Survey();
-        Question question = questions.get(0);
-        String[] answersString = getSelectedAnswers(question);
+        Question question = questions.peek();
+        String[] answersString = getSelectedAnswers(Objects.requireNonNull(question));
         survey.setQuestion(question);
         survey.setOptions(answersString);
         survey.setQuestionText(question.getText());
@@ -111,7 +114,7 @@ public final class QuestionsUtil {
     }
 
     private static String[] getSelectedAnswers(Question question) {
-        List<String> answers = new ArrayList<>(question.getAnswers().keySet());
+        List<String> answers = new ArrayList<>(question.getAnswers());
         String[] answersString = new String[answers.size()];
         for (int i = 0; i < answers.size(); i++) {
             answersString[i] = answers.get(i);

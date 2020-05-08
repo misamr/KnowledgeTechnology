@@ -1,40 +1,119 @@
-What is the age of the patient?
+Choose one major complaint:
 
 radio
-18 to 49,Physiotherapist;50 and above,Cardiologist
-Does the patient suffer from any of the following long-term conditions? (check all that apply)
+Headache,Muscle / joint pain,Chest pain,Sore throat / cough / sinusitis,Abdominal problems,Difficulty breathing
 
+Rate the severity of the patient’s headache:
+Headache|Muscle / joint pain
+radio
+Low,Moderate,Severe
+
+Choose the frequency of patient’s headache:
+Headache|Muscle / joint pain
+radio
+Recurring (chronic),Acute (sudden)
+
+Any of the following complaints besides the headache (choose one option):
+Headache
+radio
+Sore throat / cough / sinusitis,Muscle / joint pain,Seizures,None of the above
+
+Rate the severity of muscle / joint pain:
+Headache,frequency:Recurring (chronic),severity:any;Muscle or joint pain
+radio
+Low,Moderate,Severe
+
+Does the patient suffer from any of the following (check all that apply)?
+Headache,frequency:Recurring (chronic),severity:!Severe;Muscle or joint pain,severity:!severe
 checkbox
-diabetes,Cardiologist,Neurologist,Endocrinologist,Gastroenterologist;hypertension,Cardiologist;chronic muscle / joint pain,Physiotherapist
-Has the patient experienced cardiac arrest or stroke in the past?
+Arthritis,Fatigue,None of the above
 
+Check risk factors:
+Headache,frequency:Recurring (chronic),severity:!Severe;Muscle or joint pain,severity:!severe
 radio
-yes,Cardiologist,Neurologist;no,
-Does the patient have any allergies?
+Physically active,Sedentary job
 
-radio
-yes,Immunologist,Allergologist;no,
+Check all that apply:
+Headache,frequency:Acute (sudden);Sore throat / cough / sinusitis
+checkbox
+Fatigue,Itchy eyes,Asthma,Difficulty breathing,Rashes / swollen skin,Sneezing,None of the above
+
 Is the patient a smoker?
-
+Headache,frequency:Acute (sudden);Sore throat / cough / sinusitis
 radio
-yes,Cardiologist;no,
-Is the patient obese?
+Yes,No
 
+Check all that apply:
+Headache,Fever
+checkbox
+Diabetes,Otherwise unexplained weight loss / gain,Fatigue,Skin changes,Rapid heart beat,Anxiety,None of the above
+
+Check all symptoms that apply:
+Headache,frequency:Recurring (chronic),severity:!severe
+checkbox
+Trouble concentrating,Trouble sleeping / fatigue,Dizziness,None of the above
+
+Any other complaints?
+Headache,frequency:Recurring (chronic),severity:!severe,symptoms:
+checkbox
+Diabetes,Unexplained weight loss / gain,Skin changes,Rapid heart beat,Anxiety,None of the above
+
+Does the patient have a headache?
+Muscle / joint pain
 radio
-yes,Cardiologist;no,
-Does the patient do sports/exercise regularly?
+Yes,No
 
+Does the patient have difficulty breathing?
+Muscle / joint pain
 radio
-yes,Physiotherapist;no,Cardiologist
-Does the patient experience any of the following symptoms? (check all that apply)
+Yes,No
 
-checkbox
-headache,Neurologist,Otolaryngologist;seizures,Neurologist;muscle / joint pain,Neurologist,Physiotherapist;trouble concentrating,Neurologist
-Does the patient suffer from any of the following symptoms? (check all that apply)
+Does the patient have chest pain?
+Muscle / joint pain;Difficulty breathing
+radio
+Yes,No
 
+Check all that apply:
+Muscle / joint pain;!Chest paint
 checkbox
-abnormally high body temperature,Otolaryngologist;sore throat,Otolaryngologist,Allergologist;coughing/sneezing,Otolaryngologist,Allergologist;runny nose,Otolaryngologist,Allergologist
-Does the patient experience any of the following problems? (check all that apply)
+Arthritis,Fatigue,Physically active,Sedentary job,None of the above
 
+Does the patient have difficulty breathing?
+Chest pain
+radio
+Yes,No
+
+Check all that apply:
+Chest pain;!Difficulty breathing
 checkbox
-diarrhea,Gastroenterologist,Allergologist;nausea/vomiting,Gastroenterologist,Neurologist,Cardiologist;acid reflux,Gastroenterologist;rapid weight loss/gain,Endocrinologist,Gastroenterologist
+Arrythmia,Fatigue,Diabetes,heart attack / stroke in the past,None of the above
+
+Does the patient have dermatitis (rashes / swollen skin)?
+Sore throat / cough / sinusitis
+radio
+Yes,No
+
+Check all symptoms that apply:
+Sore throat / cough / sinusitis;Dermatitis
+checkbox
+Asthma,Difficulty breathing,Sneezing,Fatigue,Itchy eyes,Smoker,None of the above
+
+Check all that apply:
+Abdominal problems
+checkbox
+Dyspepsia (discomfort / pain in the upper abdomen),Acid reflux,Diarrhea,Nausea / vomiting,Unexplained weight loss / gain,Smoker,None of the above
+
+Does the patient have muscle join / pain?
+Difficulty breathing
+radio
+Yes,No
+
+Does the patient have chest pain/discomfort?
+Difficulty breathing,!Muscle / joint pain
+radio
+Yes,No
+
+Check all that apply:
+Difficulty breathing
+checkbox
+Fatigue,Itchy eyes,Asthma,Rashes / swollen skin,Sneezing,Smoker

@@ -17,6 +17,7 @@ import java.util.List;
 public class Patient implements Serializable {
     private HashMap<String, Integer> recommendations;
     private List<String> specialists;
+    private List<Problem> problems;
 
     public void init() {
         this.recommendations = new HashMap<>();
@@ -44,5 +45,13 @@ public class Patient implements Serializable {
         return "Patient{" +
                 ", recommendations=" + recommendations +
                 '}';
+    }
+
+    public List<Problem> getProblems() {
+        return problems;
+    }
+
+    public void setProblems(List<Problem> problems) {
+        this.problems = problems;
     }
 }
