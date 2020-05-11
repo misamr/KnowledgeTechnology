@@ -50,7 +50,7 @@ public class ControllerKB {
      */
     @GetMapping("/kb")
     public String kbForm(Model model) {
-        rootSurvey = QuestionsUtil.getInitialSurveyInstance(questions, patient);
+        rootSurvey = QuestionsUtil.getInitialSurveyInstance(questions);
         patient.init();
         logger.info("Page initiated");
         model.addAttribute("survey", rootSurvey);
@@ -78,6 +78,7 @@ public class ControllerKB {
         questions.remove();
 
         assert currentQuestion != null;
+        // populate the model and filter next questions
         if (currentQuestion.getQuestionType().equals("radio")) {
             RuleModel.populate(patient, currentQuestion, questions, values.get(0));
         } else {
@@ -89,8 +90,7 @@ public class ControllerKB {
         if (nextQuestion != null) {
             logger.info("Next question :" + nextQuestion.getText() + "," + nextQuestion.getProblems().toString());
         }
-
-        Survey surveyNew = QuestionsUtil.getSurveyInstance(nextQuestion, patient);
+        Survey surveyNew = QuestionsUtil.getSurveyInstance(nextQuestion);
         if (surveyNew.getQuestionText().equals("exit")) {
             logger.info("exit now");
             Inference.inferRules(patient);

@@ -16,6 +16,11 @@ import java.util.*;
 public final class QuestionsUtil {
     private static Logger logger = LoggerFactory.getLogger(ControllerKB.class);
 
+    /**
+     * Initialzie the list of questions based on survey.txt
+     *
+     * @return final list of questions with tags of problems defined
+     */
     public static Queue<Question> initializeQuestions() {
         Queue<Question> questions = new ArrayDeque<>();
         Resource resource = new ClassPathResource("survey");
@@ -37,6 +42,12 @@ public final class QuestionsUtil {
         return questions;
     }
 
+    /**
+     * Used to correctly parse the preconditions of the questions
+     *
+     * @param preconditions tags for problems
+     * @return list of problems objects
+     */
     private static List<Problem> parsePreconditions(List<String> preconditions) {
         if (preconditions.size() == 0) return new ArrayList<>();
         List<Problem> problems = new ArrayList<>();
@@ -56,14 +67,17 @@ public final class QuestionsUtil {
             }
             problems.add(problem);
         }
-
-
         return problems;
     }
 
 
-
-    public static Survey getSurveyInstance(Question question, Patient patient) {
+    /**
+     * Get the question info for processing in controller
+     *
+     * @param question question to be asked
+     * @return exit or populate the model
+     */
+    public static Survey getSurveyInstance(Question question) {
         Survey survey = new Survey();
         try {
             String[] answersString = getSelectedAnswers(question);
@@ -83,7 +97,13 @@ public final class QuestionsUtil {
         return survey;
     }
 
-    public static Survey getInitialSurveyInstance(Queue<Question> questions, Patient patient) {
+    /**
+     * Get the initial question
+     *
+     * @param questions list of questions
+     * @return exit or populate the model
+     */
+    public static Survey getInitialSurveyInstance(Queue<Question> questions) {
         Survey survey = new Survey();
         Question question = questions.peek();
         String[] answersString = getSelectedAnswers(Objects.requireNonNull(question));
@@ -100,6 +120,12 @@ public final class QuestionsUtil {
         return survey;
     }
 
+    /**
+     * Get the selected answers
+     *
+     * @param question list of questions
+     * @return selected answers depending on question type
+     */
     private static String[] getSelectedAnswers(Question question) {
         List<String> answers = new ArrayList<>(question.getAnswers());
         String[] answersString = new String[answers.size()];

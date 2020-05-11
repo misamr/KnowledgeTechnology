@@ -21,7 +21,4 @@ public class OptionTextValue {
     public void setValue(String value) {
         this.value = value;
     }
-
-
-
 }

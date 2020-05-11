@@ -2,6 +2,9 @@ package com.example.demo.domainmodel;
 
 import java.util.List;
 
+/**
+ * Class to represent the complaints of the patient or the topical questions to ask
+ */
 public class Problem {
     private String complaint;
     private List<String> riskFactors;

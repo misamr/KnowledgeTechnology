@@ -8,7 +8,7 @@ import java.util.List;
  * Class representing question data
  */
 public class Question {
-    private List<Problem> problems;
+    private List<Problem> problems; // used for tagging the questions
     private String text;
     private List<String> answers;
     private String questionType;

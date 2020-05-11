@@ -3,7 +3,6 @@ package com.example.demo.rulemodel;
 import com.example.demo.domainmodel.Patient;
 import com.example.demo.domainmodel.Problem;
 import com.example.demo.domainmodel.Question;
-import com.example.demo.utils.QuestionsUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -15,8 +14,15 @@ import java.util.*;
 public class RuleModel {
 
     private static Logger logger = LoggerFactory.getLogger(RuleModel.class);
-    private static Queue<Question> questions = QuestionsUtil.initializeQuestions();
 
+    /**
+     * Populates the answers of checkbox questions to the Patient class
+     *
+     * @param patient   patient with problems
+     * @param question  current question
+     * @param questions all questions
+     * @param answer    answer received
+     */
     public static void populate(Patient patient, Question question, Queue<Question> questions, List<String> answer) {
         logger.info("checkbox: " + question.getText());
         if (patient.getProblems().size() > 0 && question.getProblems().size() > 0) {
@@ -57,15 +63,23 @@ public class RuleModel {
         removeIrrelevantQuestions(questions, patient.getProblems());
     }
 
+    /**
+     * Populates the answers of radio questions to the Patient class
+     *
+     * @param patient   patient with problems
+     * @param question  current question
+     * @param questions all questions
+     * @param answer    answer received
+     */
     public static void populate(Patient patient, Question question, Queue<Question> questions, String answer) {
         logger.info("radio: " + question.getText());
-
         if (!question.getProblems().get(0).getComplaint().equals("")) {
             Problem patientProblem = patient.getProblems().get(0);
             String major = patientProblem.getComplaint();
             Problem patientSecondaryProblem = patient.getProblems().size() > 1 ?
                     patient.getProblems().get(1) : null;
             assert questions.peek() != null;
+            // switching between the primary problems
             switch (major) {
                 case "Headache":
                     if (patientProblem.getSeverity() == null) {
@@ -93,7 +107,6 @@ public class RuleModel {
                                     }
                                 }
                                 break;
-
                         }
                     }
                     break;
@@ -156,15 +169,19 @@ public class RuleModel {
                     }
                     break;
             }
-
         } else {
             patient.setProblems(new ArrayList<>());
             patient.getProblems().add(new Problem(answer));
         }
         removeIrrelevantQuestions(questions, patient.getProblems());
-
     }
 
+    /**
+     * Removes questions that do not match the problems the patient has
+     *
+     * @param questions       all questions
+     * @param patientProblems patient problems
+     */
     private static void removeIrrelevantQuestions(Queue<Question> questions, List<Problem> patientProblems) {
         if (questions.peek() != null) {
             logger.info("Null :" + patientProblems.toString() + ", " + questions.peek().getProblems());
@@ -172,10 +189,15 @@ public class RuleModel {
                 questions.remove();
             }
         }
-
-
     }
 
+    /**
+     * Finds the match between the patient problems and questions to ask
+     *
+     * @param patientProblems patient problems
+     * @param qProblems       problems related to the question
+     * @return boolean value of match
+     */
     private static boolean findMatch(List<Problem> patientProblems, List<Problem> qProblems) {
         boolean match = false;
         int cnt = 0;
@@ -197,7 +219,14 @@ public class RuleModel {
         return match;
     }
 
-
+    /**
+     * Compares the strings
+     * Used for comparing severity and frequency when the condition is exclusive
+     *
+     * @param s1 string one
+     * @param s2 string two
+     * @return true if equal
+     */
     public static boolean compareStrings(String s1, String s2) {
         if (s1 == null || s2 == null) {
             return true;
@@ -216,15 +245,4 @@ public class RuleModel {
         }
     }
 
-    public static Question getQuestionKB(String question) {
-        Question questionKB = null;
-        for (Question q : questions) {
-            if (q.getText().equals(question)) {
-                questionKB = q;
-                break;
-            }
-        }
-        if (questionKB == null) logger.info("Question did not match any=" + question);
-        return questionKB;
-    }
 }

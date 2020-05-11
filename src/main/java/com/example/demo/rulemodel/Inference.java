@@ -121,10 +121,11 @@ public class Inference {
                         patient.getRecommendations().getOrDefault(tag, 0) + 1);
                 break;
         }
+        // in case no inference
         if (patient.getRecommendations().isEmpty()) {
-            logger.info("HELLO NO SPECIALIST");
             patient.getRecommendations().put("No specialist", 1);
         }
+        // sort the specialist count to form the ranking
         HashMap<String, Integer> sortedRecommendations = sortByValue(patient.getRecommendations());
         List<String> recommendations = new ArrayList<>();
         int i = Math.min(sortedRecommendations.entrySet().size(), 3);
@@ -136,7 +137,6 @@ public class Inference {
             i--;
         }
         logger.info("inference=" + sortedRecommendations.toString());
-
         patient.setSpecialists(recommendations);
     }
 
