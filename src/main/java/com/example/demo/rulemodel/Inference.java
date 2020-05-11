@@ -1,9 +1,11 @@
 package com.example.demo.rulemodel;
 
 import com.example.demo.domainmodel.Patient;
+import com.example.demo.domainmodel.Problem;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.nio.file.LinkOption;
 import java.util.*;
 
 import static java.util.Map.Entry.comparingByValue;
@@ -21,74 +23,162 @@ public class Inference {
      * @param patient patient's stats
      */
     public static void inferRules(Patient patient) {
+        // inferring the rules
+        Problem major = patient.getProblems().get(0);
+        Problem secondary = patient.getProblems().size() > 1 ? patient.getProblems().get(1) : null;
+        switch (major.getComplaint()) {
+            case "Headache":
+                if (secondary == null) {
+                    String tag;
+                    if (major.getSeverity().equals("Severe") && major.getFrequency().equals("Recurring (chronic)") ||
+                            major.getFrequency().equals("Recurring (chronic)") && major.getSymptoms().size() > 1) {
+                        tag = "Neurologist";
+                    } else if (RuleModel.compareStrings(major.getSeverity(), "Severe") && major.getFrequency().equals("Recurring (chronic)")
+                            && major.getSymptoms().size() > 2) {
+                        tag = "Endocrinologist";
+                    } else if (major.getFrequency().equals("Acute (sudden)") && RuleModel.compareStrings(major.getSeverity(), "Severe")) {
+                        tag = "Neurologist";
+                    } else {
+                        tag = "No specialist";
+                    }
+                    patient.getRecommendations().put(tag,
+                            patient.getRecommendations().getOrDefault(tag, 0) + 1);
+                } else {
+                    switch (secondary.getComplaint()) {
+                        case "Muscle / joint pain":
+                            ruleHeadacheMuscle(patient, major, secondary);
+                            break;
+                        case "Sore throat / cough / sinusitis":
+                            String tag;
+                            if (major.getSymptoms().size() >= 1 &&
+                                    !major.getSymptoms().contains("None of the above")) {
+                                tag = "Allergologist";
+                                patient.getRecommendations().put(tag,
+                                        patient.getRecommendations().getOrDefault(tag, 0) + 1);
+                            } else {
+                                tag = "Otolaryngologist";
+                            }
+                            patient.getRecommendations().put(tag,
+                                    patient.getRecommendations().getOrDefault(tag, 0) + 1);
+                    }
+                }
+                break;
+            case "Muscle / joint pain":
+                if (secondary != null && secondary.getComplaint().equals("Headache")) {
+                    ruleHeadacheMuscle(patient, secondary, major);
+                } else if (secondary != null && secondary.getComplaint().equals("Difficulty breathing")) {
+                    ruleMuscleDifficultyBreathing(patient, major);
+                } else if (major.getSymptoms() != null && major.getSymptoms().size() > 1 &&
+                        !major.getSymptoms().contains("None of the above")) {
+                    String tag = "Physiotherapist";
+                    patient.getRecommendations().put(tag,
+                            patient.getRecommendations().getOrDefault(tag, 0) + 1);
+                }
+                break;
+            case "Chest pain":
+                String tag;
+                if (secondary != null && (secondary.getComplaint().equals("Difficulty breathing") ||
+                        major.getSymptoms().size() > 1 && !major.getSymptoms().contains("None of the above"))) {
+                    tag = "Cardiologist";
+                } else {
+                    tag = "No specialist";
+                }
+                patient.getRecommendations().put(tag,
+                        patient.getRecommendations().getOrDefault(tag, 0) + 1);
+                break;
+            case "Sore throat / cough / sinusitis":
+                if (secondary != null && secondary.getComplaint().equals("Dermatitis") &&
+                        major.getSymptoms().size() > 2) {
+                    tag = "Allergologist";
+                } else {
+                    tag = "Otolaryngologist";
+                }
+                patient.getRecommendations().put(tag,
+                        patient.getRecommendations().getOrDefault(tag, 0) + 1);
+                break;
+            case "Abdominal problems":
+                if (major.getSymptoms().size() > 1 && !major.getSymptoms().contains("None of the above")) {
+                    tag = "Gastroenterologist";
+                } else {
+                    tag = "No specialist";
+                }
+                patient.getRecommendations().put(tag,
+                        patient.getRecommendations().getOrDefault(tag, 0) + 1);
+                break;
+
+            case "Difficulty breathing":
+                if (secondary != null && secondary.getComplaint().equals("Muscle / joint pain")) {
+                    ruleMuscleDifficultyBreathing(patient, secondary);
+                }
+                if (secondary != null && secondary.getComplaint().equals("Chest pain")) {
+                    tag = "Cardiologist";
+                } else if (major.getSymptoms().size() > 2) {
+                    tag = "ALlergologist";
+                } else {
+                    tag = "No specialist";
+                }
+                patient.getRecommendations().put(tag,
+                        patient.getRecommendations().getOrDefault(tag, 0) + 1);
+                break;
+        }
+        if (patient.getRecommendations().isEmpty()) {
+            logger.info("HELLO NO SPECIALIST");
+            patient.getRecommendations().put("No specialist", 1);
+        }
         HashMap<String, Integer> sortedRecommendations = sortByValue(patient.getRecommendations());
         List<String> recommendations = new ArrayList<>();
         int i = Math.min(sortedRecommendations.entrySet().size(), 3);
-        logger.info("i is ----- " + i);
         for (Map.Entry<String, Integer> entry : sortedRecommendations.entrySet()) {
             if (i <= 0) {
                 break;
             }
-            StringBuilder recommendation = new StringBuilder(entry.getKey());
-            switch (entry.getKey()) {
-                case "Cardiologist":
-                    /*recommendation.append(" - Cardiologist specializes in diagnosing and " +
-                            "treating diseases of the cardiovascular system, such as arrythmias, coronary " +
-                            "heart disease, atherosclerosis or high blood cholesterol. Patients diagnosed " +
-                            "with heart disease or patients with a high risk of developing heart disease " +
-                            "based on their medical history (patients over 50 years of age, obese patients, " +
-                            "smokers, patients with hypertension) should visit a cardiologist.\n");*/
-                    break;
-                case "Neurologist":
-                    /*recommendation.append(" - Neurologist specializes in treating diseases " +
-                            "of the central and peripheral nervous system. Patients experiencing muscle weakness, " +
-                            "dizziness, seizures, severe headaches or patients who have suffered damage of the " +
-                            "nervous system (such as stroke) should visit a neurologist for further diagnostics " +
-                            "and treatment.\n");*/
-                    break;
-                case "Otolaryngologist":
-                    /*recommendation.append(" - Otolaryngologist specializes in treating diseases" +
-                            " of the ear, nose, throat, and related bodily structures. Most commonly, otolaryngologists " +
-                            "treat chronic sinusitis (demonstrated by swollen and inflamed sinuses - nose and head), " +
-                            "laryngeal diseases (common symptoms include sore throat), and ear pain. Treatment of " +
-                            "allergies which affect the sense of smell may require cooperation of both otolaryngologist " +
-                            "and allergologist.\n");*/
-                    break;
-                case "Physiotherapist":
-                    /*recommendation.append(" - Physiotherapy helps with the management of " +
-                            "long-term conditions related to the musculoskeletal and nervous system (such as arthritis), " +
-                            "as well as sudden injuries (especially people who do sports are at risk). A wide range of " +
-                            "patients may benefit from visiting a physiotherapist, and patients physiotherapy is typically " +
-                            "indicated as a complementary treatment along with other medical procedures.\n");
-                    break;*/
-                case "Gastroenterologist":
-                    /*recommendation.append(" - Gastroenterologist specializes in treating " +
-                            "conditions of the gastrointestinal tract and liver. Diseases treated by gastroenterologists " +
-                            "typically include peptic ulcer disease, nutritional problems or colon polyps. You should " +
-                            "consider referring a patient to gastroenterologist if the patient suffers from diarrhea, " +
-                            "vomiting, acid reflux, or has recently experienced rapid weight gain / loss.\n");
-                    break;*/
-                case "Allergologist":
-                    /*recommendation.append(" - Allergologist is trained to prevent, diagnose and " +
-                            "manage allergic disease (such as food allergies or asthma). In many cases, allergies may " +
-                            "demonstrate very subtly (runny nose, sore throat, coughing / sneezing) and are often " +
-                            "misdiagnosed.\n");*/
-                    break;
-                case "Endocrinologist":
-                    /*recommendation.append(" - Endocrinologists are experts in glands that are " +
-                            "responsible for producing and releasing hormones into the bloodstream (which coordinate " +
-                            "processes ranging from metabolism to cell growth). One of the most common diseases treated " +
-                            "by endocrinologists is hyperthyroidism (common symptoms include sudden weight loss or gain, " +
-                            "and fatigue). Furthermore, endocrinologists are usually involved in the treatment of a " +
-                            "range of diseases, including diabetes, osteoporosis or metabolic disorders.");
-                    break;*/
-            }
-            recommendations.add(recommendation.toString());
+            recommendations.add(entry.getKey());
             i--;
         }
         logger.info("inference=" + sortedRecommendations.toString());
 
         patient.setSpecialists(recommendations);
+    }
+
+    private static void ruleMuscleDifficultyBreathing(Patient patient, Problem major) {
+        String tag;
+        if (patient.getProblems().size() > 2 && patient.getProblems().get(2).getComplaint().equals("Chest pain")) {
+            tag = "Cardiologist";
+        } else if (major.getSymptoms().size() > 1 && !major.getSymptoms().contains("None of the above")) {
+            tag = "Physiotherapist";
+        } else {
+            tag = "No specialist";
+        }
+        patient.getRecommendations().put(tag,
+                patient.getRecommendations().getOrDefault(tag, 0) + 1);
+    }
+
+    private static void ruleHeadacheMuscle(Patient patient, Problem major, Problem secondary) {
+
+        if (RuleModel.compareStrings(major.getSeverity(), "Severe") &&
+                RuleModel.compareStrings(secondary.getSeverity(), "Severe")) {
+            String tag = "Neurologist";
+            patient.getRecommendations().put(tag,
+                    patient.getRecommendations().getOrDefault(tag, 0) + 1);
+        }
+        if (RuleModel.compareStrings(major.getSeverity(), "!Low") &&
+                RuleModel.compareStrings(secondary.getSeverity(), "!Low") &&
+                ((major.getSymptoms() != null && major.getSymptoms().size() >= 1 &&
+                        !major.getSymptoms().contains("None of the above")) ||
+                        (major.getRiskFactors() != null && major.getRiskFactors().size() >= 1 &&
+                                !major.getRiskFactors().get(0).equals("None of the above")))) {
+            String tag = "Physiotherapist";
+            patient.getRecommendations().put(tag,
+                    patient.getRecommendations().getOrDefault(tag, 0) + 1);
+
+        }
+        if (RuleModel.compareStrings(major.getSeverity(), "!Low") &&
+                RuleModel.compareStrings(secondary.getSeverity(), "!Low") &&
+                (major.getSymptoms() != null && major.getSymptoms().contains("Fatigue") || patient.isFever())) {
+            String tag = "Neurologist";
+            patient.getRecommendations().put(tag,
+                    patient.getRecommendations().getOrDefault(tag, 0) + 1);
+        }
     }
 
     /**

@@ -28,7 +28,7 @@ public final class QuestionsUtil {
         assert list != null;
         for (int i = 0; i < list.size(); i += 5) {
             String question = list.get(i);
-            List<String> preconditions = Arrays.asList(list.get(i+1).split(";"));
+            List<String> preconditions = Arrays.asList(list.get(i + 1).split(";"));
             List<Problem> problems = parsePreconditions(preconditions);
             String questionType = list.get(i + 2);
             List<String> answers = Arrays.asList(list.get(i + 3).split(","));
@@ -41,7 +41,7 @@ public final class QuestionsUtil {
         if (preconditions.size() == 0) return new ArrayList<>();
         List<Problem> problems = new ArrayList<>();
         for (int i = 0; i < preconditions.size(); i++) {
-            List<String> complaint = Arrays.asList(preconditions.get(0).split(","));
+            List<String> complaint = Arrays.asList(preconditions.get(i).split(","));
             Problem problem = new Problem(complaint.get(0));
             if (i == 0) {
                 problem.setMajor(true);
@@ -61,19 +61,6 @@ public final class QuestionsUtil {
         return problems;
     }
 
-
-
-    private static Question getNextQuestionElement(String question, List<Question> questions) {
-        Question next = null;
-        for (int i = 0; i < questions.size() - 1; i++) {
-            Question q = questions.get(i);
-            if (q.getText().equals(question)) {
-                next = questions.get(i + 1);
-                break;
-            }
-        }
-        return next;
-    }
 
 
     public static Survey getSurveyInstance(Question question, Patient patient) {

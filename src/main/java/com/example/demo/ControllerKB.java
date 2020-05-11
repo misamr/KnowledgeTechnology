@@ -36,7 +36,6 @@ public class ControllerKB {
 
     /**
      * load the questions and the knowledge base on startup
-     *
      */
     @PostConstruct
     public void init() {
@@ -67,7 +66,7 @@ public class ControllerKB {
      * Loads all the subsequent questions and the final recommendations
      *
      * @param survey set of questions to be asked
-     * @param model model of the system
+     * @param model  model of the system
      * @return sends to the next page of survey or results page
      */
     @PostMapping("/kb")
@@ -76,18 +75,24 @@ public class ControllerKB {
         List<String> values = Arrays.asList(survey.getCheckBoxSelectedValues() == null ?
                 new String[]{survey.getRadioButtonSelectedValue()} : survey.getCheckBoxSelectedValues());
         Question currentQuestion = questions.peek();
-        logger.info(String.valueOf(currentQuestion.getProblems().get(0).getComplaint().equals("")));
-        if (values.size() == 1) {
+        questions.remove();
+
+        assert currentQuestion != null;
+        if (currentQuestion.getQuestionType().equals("radio")) {
             RuleModel.populate(patient, currentQuestion, questions, values.get(0));
         } else {
             RuleModel.populate(patient, currentQuestion, questions, values);
         }
-        logger.info("Patient data " + patient.getRecommendations().keySet());
-        questions.remove();
+        logger.info("Patient specialists " + patient.getRecommendations().keySet());
+        logger.info("Patient problems :" + patient.getProblems().toString());
         Question nextQuestion = questions.peek();
-        assert nextQuestion != null;
+        if (nextQuestion != null) {
+            logger.info("Next question :" + nextQuestion.getText() + "," + nextQuestion.getProblems().toString());
+        }
+
         Survey surveyNew = QuestionsUtil.getSurveyInstance(nextQuestion, patient);
         if (surveyNew.getQuestionText().equals("exit")) {
+            logger.info("exit now");
             Inference.inferRules(patient);
             model.addAttribute("specialists", patient.getSpecialists());
             return "recommendation";

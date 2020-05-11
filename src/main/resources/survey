@@ -4,12 +4,12 @@ radio
 Headache,Muscle / joint pain,Chest pain,Sore throat / cough / sinusitis,Abdominal problems,Difficulty breathing
 
 Rate the severity of the patient’s headache:
-Headache|Muscle / joint pain
+Headache
 radio
 Low,Moderate,Severe
 
 Choose the frequency of patient’s headache:
-Headache|Muscle / joint pain
+Headache
 radio
 Recurring (chronic),Acute (sudden)
 
@@ -19,19 +19,9 @@ radio
 Sore throat / cough / sinusitis,Muscle / joint pain,Seizures,None of the above
 
 Rate the severity of muscle / joint pain:
-Headache,frequency:Recurring (chronic),severity:any;Muscle or joint pain
+Headache,frequency:Recurring (chronic);Muscle / joint pain
 radio
 Low,Moderate,Severe
-
-Does the patient suffer from any of the following (check all that apply)?
-Headache,frequency:Recurring (chronic),severity:!Severe;Muscle or joint pain,severity:!severe
-checkbox
-Arthritis,Fatigue,None of the above
-
-Check risk factors:
-Headache,frequency:Recurring (chronic),severity:!Severe;Muscle or joint pain,severity:!severe
-radio
-Physically active,Sedentary job
 
 Check all that apply:
 Headache,frequency:Acute (sudden);Sore throat / cough / sinusitis
@@ -44,17 +34,17 @@ radio
 Yes,No
 
 Check all that apply:
-Headache,Fever
+Headache;Fever
 checkbox
 Diabetes,Otherwise unexplained weight loss / gain,Fatigue,Skin changes,Rapid heart beat,Anxiety,None of the above
 
 Check all symptoms that apply:
-Headache,frequency:Recurring (chronic),severity:!severe
+Headache,frequency:Recurring (chronic),severity:!Severe;None of the above
 checkbox
 Trouble concentrating,Trouble sleeping / fatigue,Dizziness,None of the above
 
 Any other complaints?
-Headache,frequency:Recurring (chronic),severity:!severe,symptoms:
+Headache,frequency:Recurring (chronic),severity:!Severe;None of the above
 checkbox
 Diabetes,Unexplained weight loss / gain,Skin changes,Rapid heart beat,Anxiety,None of the above
 
@@ -63,8 +53,18 @@ Muscle / joint pain
 radio
 Yes,No
 
+Does the patient suffer from any of the following (check all that apply)?
+Muscle / joint pain,severity:!Severe;Headache,frequency:Recurring (chronic),severity:!Severe
+checkbox
+Arthritis,Fatigue,None of the above
+
+Check risk factors:
+Muscle / joint pain,severity:!Severe;Headache,frequency:Recurring (chronic),severity:!Severe;
+radio
+Physically active,Sedentary job
+
 Does the patient have difficulty breathing?
-Muscle / joint pain
+Muscle / joint pain;!Headache
 radio
 Yes,No
 
@@ -74,7 +74,7 @@ radio
 Yes,No
 
 Check all that apply:
-Muscle / joint pain;!Chest paint
+Muscle / joint pain,!Headache
 checkbox
 Arthritis,Fatigue,Physically active,Sedentary job,None of the above
 
@@ -114,6 +114,6 @@ radio
 Yes,No
 
 Check all that apply:
-Difficulty breathing
+Difficulty breathing;Chest pain
 checkbox
 Fatigue,Itchy eyes,Asthma,Rashes / swollen skin,Sneezing,Smoker

@@ -18,7 +18,7 @@ public class Patient implements Serializable {
     private HashMap<String, Integer> recommendations;
     private List<String> specialists;
     private List<Problem> problems;
-
+    private boolean fever;
     public void init() {
         this.recommendations = new HashMap<>();
         this.specialists = new ArrayList<>();
@@ -44,6 +44,7 @@ public class Patient implements Serializable {
     public String toString() {
         return "Patient{" +
                 ", recommendations=" + recommendations +
+                ", problems=" + problems +
                 '}';
     }
 
@@ -53,5 +54,13 @@ public class Patient implements Serializable {
 
     public void setProblems(List<Problem> problems) {
         this.problems = problems;
+    }
+
+    public boolean isFever() {
+        return fever;
+    }
+
+    public void setFever(boolean fever) {
+        this.fever = fever;
     }
 }

@@ -23,7 +23,6 @@ public class Problem {
     }
 
 
-
     public String getFrequency() {
         return frequency;
     }
@@ -64,4 +63,18 @@ public class Problem {
     public void setRiskFactors(List<String> riskFactors) {
         this.riskFactors = riskFactors;
     }
+
+    @Override
+    public String toString() {
+        return "Problem{" +
+                "complaint='" + complaint + '\'' +
+                ", riskFactors=" + riskFactors +
+                ", frequency='" + frequency + '\'' +
+                ", symptoms=" + symptoms +
+                ", severity='" + severity + '\'' +
+                ", major=" + major +
+                '}';
+    }
+
+
 }

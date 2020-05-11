@@ -13,7 +13,6 @@ public class Question {
     private List<String> answers;
     private String questionType;
     private List<Question> nextQuestions;
-    private boolean covered;
     public Question(String text, List<String> answers, String questionType,
                     List<Problem> problems) {
         this.text = text;
@@ -65,11 +64,5 @@ public class Question {
         this.nextQuestions = nextQuestions;
     }
 
-    public boolean isCovered() {
-        return covered;
-    }
 
-    public void setCovered(boolean covered) {
-        this.covered = covered;
-    }
 }
