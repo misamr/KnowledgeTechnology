@@ -22,21 +22,21 @@ public class RuleModel {
      * @param question current question
      * @param answer   numeric input by user
      */
-    public static void populate(Patient patient, Question question, int answer) {
+    public static void populate(Patient patient, Question question, double answer) {
         logger.info("text: " + question.getText());
         if (patient.getAge() == Integer.MIN_VALUE) {
-            patient.setAge(answer);
+            patient.setAge((int) answer);
         } else if (patient.getSystolic() == Integer.MIN_VALUE) {
-            patient.setSystolic(answer);
+            patient.setSystolic((int) answer);
         } else if (patient.getDiastolic() == Integer.MIN_VALUE) {
-            patient.setDiastolic(answer);
+            patient.setDiastolic((int) answer);
         } else if (patient.getWeight() == Integer.MIN_VALUE) {
             patient.setWeight(answer);
         } else if (patient.getHeight() == Integer.MIN_VALUE) {
-            patient.setHeight(answer);
+            patient.setHeight((int) answer);
         } else if (patient.getTemperature() == Integer.MIN_VALUE) {
             patient.setTemperature(answer);
-            patient.setFever(answer > 38);
+            patient.setFever(answer > 38.0);
         }
     }
 

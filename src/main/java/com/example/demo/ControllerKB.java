@@ -89,7 +89,7 @@ public class ControllerKB {
         } else if (currentQuestion.getQuestionType().equals("checkbox")) {
             RuleModel.populate(patient, currentQuestion, questions, values);
         } else {
-            RuleModel.populate(patient, currentQuestion, Integer.parseInt(values.get(0)));
+            RuleModel.populate(patient, currentQuestion, Double.parseDouble(values.get(0)));
         }
         logger.info("Patient specialists " + patient.getRecommendations().keySet());
         logger.info("Patient data:" + patient.toString());

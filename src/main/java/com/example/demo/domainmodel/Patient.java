@@ -22,9 +22,9 @@ public class Patient implements Serializable {
     private int age = Integer.MIN_VALUE;
     private int systolic = Integer.MIN_VALUE;
     private int diastolic = Integer.MIN_VALUE;
-    private int weight = Integer.MIN_VALUE;
+    private double weight = Integer.MIN_VALUE;
     private int height = Integer.MIN_VALUE;
-    private int temperature = Integer.MIN_VALUE;
+    private double temperature = Integer.MIN_VALUE;
 
     public void init() {
         this.recommendations = new HashMap<>();
@@ -104,11 +104,11 @@ public class Patient implements Serializable {
         this.diastolic = diastolic;
     }
 
-    public int getWeight() {
+    public double getWeight() {
         return weight;
     }
 
-    public void setWeight(int weight) {
+    public void setWeight(double weight) {
         this.weight = weight;
     }
 
@@ -120,11 +120,11 @@ public class Patient implements Serializable {
         this.height = height;
     }
 
-    public int getTemperature() {
+    public double getTemperature() {
         return temperature;
     }
 
-    public void setTemperature(int temperature) {
+    public void setTemperature(double temperature) {
         this.temperature = temperature;
     }
 }
