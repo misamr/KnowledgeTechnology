@@ -112,8 +112,8 @@ public class Inference {
                 }
                 if (secondary != null && secondary.getComplaint().equals("Chest pain")) {
                     tag = "Cardiologist";
-                } else if (major.getSymptoms().size() > 2) {
-                    tag = "ALlergologist";
+                } else if (major.getSymptoms() != null && major.getSymptoms().size() > 2) {
+                    tag = "Allergologist";
                 } else {
                     tag = "No specialist";
                 }
@@ -144,7 +144,8 @@ public class Inference {
         String tag;
         if (patient.getProblems().size() > 2 && patient.getProblems().get(2).getComplaint().equals("Chest pain")) {
             tag = "Cardiologist";
-        } else if (major.getSymptoms().size() > 1 && !major.getSymptoms().contains("None of the above")) {
+        } else if (major.getSymptoms() != null && major.getSymptoms().size() > 1 &&
+                !major.getSymptoms().contains("None of the above")) {
             tag = "Physiotherapist";
         } else {
             tag = "No specialist";

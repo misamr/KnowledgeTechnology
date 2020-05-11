@@ -31,8 +31,6 @@ public class ControllerKB {
 
     @Resource
     private Patient patient; //this is a session scoped variable
-    private List<Question> coveredQuestions;
-    private Survey rootSurvey;
 
     /**
      * load the questions and the knowledge base on startup
@@ -50,7 +48,8 @@ public class ControllerKB {
      */
     @GetMapping("/kb")
     public String kbForm(Model model) {
-        rootSurvey = QuestionsUtil.getInitialSurveyInstance(questions);
+        questions = QuestionsUtil.initializeQuestions();
+        Survey rootSurvey = QuestionsUtil.getInitialSurveyInstance(questions);
         patient.init();
         logger.info("Page initiated");
         model.addAttribute("survey", rootSurvey);
@@ -105,4 +104,11 @@ public class ControllerKB {
             return "home";
         }
     }
+
+    @PostMapping("/restart")
+    public void restart() {
+        Application.restart();
+    }
+
+
 }

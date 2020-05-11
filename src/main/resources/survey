@@ -108,8 +108,13 @@ Difficulty breathing
 radio
 Yes,No
 
+Check all that apply:
+Difficulty breathing;Muscle / joint pain
+checkbox
+Arthritis,Fatigue,Physically active,Sedentary job,None of the above
+
 Does the patient have chest pain/discomfort?
-Difficulty breathing,!Muscle / joint pain
+Difficulty breathing;!Muscle / joint pain
 radio
 Yes,No
 

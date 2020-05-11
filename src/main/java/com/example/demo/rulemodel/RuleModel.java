@@ -129,8 +129,6 @@ public class RuleModel {
                         case "Does the patient have chest pain?":
                             if (answer.equals("Yes")) {
                                 patient.getProblems().add(new Problem("Chest pain"));
-                            } else {
-                                patient.getProblems().add(new Problem("!Chest pain"));
                             }
                             break;
                     }
@@ -160,11 +158,9 @@ public class RuleModel {
                         if (answer.equals("Yes")) {
                             patient.getProblems().add(new Problem("Muscle / joint pain"));
                         }
-                    } else if (question.getText().equals("Does the patient have chest pain /discomfort?")) {
+                    } else if (question.getText().equals("Does the patient have chest pain?")) {
                         if (answer.equals("Yes")) {
                             patient.getProblems().add(new Problem("Chest pain"));
-                        } else {
-                            patient.getProblems().add(new Problem("!Chest pain"));
                         }
                     }
                     break;
@@ -184,7 +180,6 @@ public class RuleModel {
      */
     private static void removeIrrelevantQuestions(Queue<Question> questions, List<Problem> patientProblems) {
         if (questions.peek() != null) {
-            logger.info("Null :" + patientProblems.toString() + ", " + questions.peek().getProblems());
             while (questions.peek() != null && !findMatch(patientProblems, questions.peek().getProblems())) {
                 questions.remove();
             }
@@ -203,18 +198,15 @@ public class RuleModel {
         int cnt = 0;
         for (Problem q : qProblems) {
             for (Problem p : patientProblems) {
-                logger.info("Null checks:" + p.toString() + ", " + q.toString());
                 if (q.getComplaint().equals(p.getComplaint()) &&
                         compareStrings(q.getFrequency(), p.getFrequency()) &&
                         compareStrings(q.getSeverity(), p.getSeverity())) {
-                    logger.info("Match: " + q.getComplaint() + "," + p.getComplaint());
                     match = true;
                     cnt++;
                     break;
                 }
             }
         }
-        logger.info("finished null check");
         if (cnt != patientProblems.size()) match = false;
         return match;
     }
