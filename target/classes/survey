@@ -13,12 +13,12 @@ What is the diastolic of the patient?
 text
 
 
-What is the weight of the patient?
+What is the weight of the patient (in kg)?
 
 text
 
 
-What is the height of the patient?
+What is the height of the patient (in cm)?
 
 text
 
@@ -142,11 +142,6 @@ Check all that apply:
 Difficulty breathing;Muscle / joint pain
 checkbox
 Arthritis,Fatigue,Physically active,Sedentary job,None of the above
-
-Does the patient have chest pain/discomfort?
-Difficulty breathing;!Muscle / joint pain
-radio
-Yes,No
 
 Check all that apply:
 Difficulty breathing;Chest pain

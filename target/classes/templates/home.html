@@ -14,25 +14,18 @@
 
         });
 
-
-
-function checkInp()
-{
-  var x=document.forms["surveyForm"]["textGivenValue"].value;
-  if (x == "" || isNaN(x))
-  {
-    alert("Must input numbers");
-    return false;
-  }
-  else{
-    return true;
-  }
-}
-
+        function checkInp(){
+            var x=document.forms["surveyForm"]["textGivenValue"].value;
+            if (x == ""){
+                return false;
+            }
+            else{
+                return true;
+            }
+        }
 
         function isSelected() {
-
-            if (checkInp() || $('input[type=radio]:checked').length > 0 || $('input[type=checkbox]:checked').length > 0) {
+            if ($('input[type=radio]:checked').length > 0 || $('input[type=checkbox]:checked').length > 0 || checkInp()) {
                 $("#dialog").hide();
                 document.getElementById('surveyForm').submit();
             }
@@ -186,7 +179,7 @@ function checkInp()
             </div>
 
             <div style="height:20px"></div>
-            <div id="dialog" style="color:#c10017;display:none">Please select an option.</div>
+            <div id="dialog" style="color:#c10017;display:none">Please give an answer.</div>
             <div style="height:22px"></div>
 
             <a href="/kb" class="button" onclick="isSelected(); return false;"

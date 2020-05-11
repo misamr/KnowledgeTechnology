@@ -1,25 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1d5efd07-7c22-4774-bb0e-c8e1bb4b6537" name="Default Changelist" comment="front end text (it is now outputted as a radiobuttonvalue so idk if it works perfectly&#10;or not yet)">
+    <list default="true" id="1d5efd07-7c22-4774-bb0e-c8e1bb4b6537" name="Default Changelist" comment="checks if text input is empty">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/domainmodel/Question.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/domainmodel/Question.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ai-kb-0.1.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/ai-kb-0.1.0.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ai-kb-0.1.0.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/target/ai-kb-0.1.0.jar.original" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/Application.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/Application.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/ControllerKB.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/ControllerKB.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/domainmodel/Patient.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/domainmodel/Patient.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/domainmodel/Question.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/domainmodel/Question.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/domainmodel/Survey.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/domainmodel/Survey.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/rulemodel/Inference.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/rulemodel/Inference.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/rulemodel/RuleModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/rulemodel/RuleModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/utils/QuestionsUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/utils/QuestionsUtil.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/survey" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/survey" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/recommendation.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/recommendation.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -256,7 +246,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589204451208</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="checks if text input is empty">
+      <created>1589216002019</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1589216002019</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -292,7 +289,8 @@
     <MESSAGE value="collapsible buttons in recommendations" />
     <MESSAGE value="front end text (it is now outputted as a radiobuttonvalue so idk if it works perfectly&#10;or not yet)" />
     <MESSAGE value="front end text" />
-    <option name="LAST_COMMIT_MESSAGE" value="front end text" />
+    <MESSAGE value="checks if text input is empty" />
+    <option name="LAST_COMMIT_MESSAGE" value="checks if text input is empty" />
   </component>
   <component name="WindowStateProjectService">
     <state x="227" y="25" key="CommitChangelistDialog2" timestamp="1578877174481">
