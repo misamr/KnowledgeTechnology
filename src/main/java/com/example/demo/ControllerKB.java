@@ -18,6 +18,7 @@ import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Queue;
 
 /**
  * This is the controller class
@@ -26,16 +27,13 @@ import java.util.List;
 public class ControllerKB {
 
     private Logger logger = LoggerFactory.getLogger(ControllerKB.class);
-    private List<Question> questions;
+    private Queue<Question> questions;
 
     @Resource
     private Patient patient; //this is a session scoped variable
 
-    private Survey rootSurvey;
-
     /**
      * load the questions and the knowledge base on startup
-     *
      */
     @PostConstruct
     public void init() {
@@ -50,7 +48,8 @@ public class ControllerKB {
      */
     @GetMapping("/kb")
     public String kbForm(Model model) {
-        rootSurvey = QuestionsUtil.getInitialSurveyInstance(questions, patient);
+        questions = QuestionsUtil.initializeQuestions();
+        Survey rootSurvey = QuestionsUtil.getInitialSurveyInstance(questions);
         patient.init();
         logger.info("Page initiated");
         model.addAttribute("survey", rootSurvey);
@@ -66,7 +65,7 @@ public class ControllerKB {
      * Loads all the subsequent questions and the final recommendations
      *
      * @param survey set of questions to be asked
-     * @param model model of the system
+     * @param model  model of the system
      * @return sends to the next page of survey or results page
      */
     @PostMapping("/kb")
@@ -74,17 +73,25 @@ public class ControllerKB {
         /* Returning the appropriate pages after the questionnaire has been completed */
         List<String> values = Arrays.asList(survey.getCheckBoxSelectedValues() == null ?
                 new String[]{survey.getRadioButtonSelectedValue()} : survey.getCheckBoxSelectedValues());
+        Question currentQuestion = questions.peek();
+        questions.remove();
 
-        String questionText = survey.getQuestionText();
-        if (values.size() == 1) {
-            RuleModel.populate(patient, questionText, values.get(0));
+        assert currentQuestion != null;
+        // populate the model and filter next questions
+        if (currentQuestion.getQuestionType().equals("radio")) {
+            RuleModel.populate(patient, currentQuestion, questions, values.get(0));
         } else {
-            RuleModel.populate(patient, questionText, values);
+            RuleModel.populate(patient, currentQuestion, questions, values);
         }
-        logger.info("Patient data " + patient.getRecommendations().keySet());
-        Question question = RuleModel.getQuestionKB(questionText);
-        Survey surveyNew = QuestionsUtil.getSurveyInstance(question.getText(), patient);
+        logger.info("Patient specialists " + patient.getRecommendations().keySet());
+        logger.info("Patient problems :" + patient.getProblems().toString());
+        Question nextQuestion = questions.peek();
+        if (nextQuestion != null) {
+            logger.info("Next question :" + nextQuestion.getText() + "," + nextQuestion.getProblems().toString());
+        }
+        Survey surveyNew = QuestionsUtil.getSurveyInstance(nextQuestion);
         if (surveyNew.getQuestionText().equals("exit")) {
+            logger.info("exit now");
             Inference.inferRules(patient);
             model.addAttribute("specialists", patient.getSpecialists());
             return "recommendation";
@@ -97,4 +104,11 @@ public class ControllerKB {
             return "home";
         }
     }
+
+    @PostMapping("/restart")
+    public void restart() {
+        Application.restart();
+    }
+
+
 }

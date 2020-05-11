@@ -1,5 +1,6 @@
 package com.example.demo.domainmodel;
 
+
 import java.util.HashMap;
 import java.util.List;
 
@@ -7,16 +8,17 @@ import java.util.List;
  * Class representing question data
  */
 public class Question {
+    private List<Problem> problems; // used for tagging the questions
     private String text;
-    private List<String> tags;
-    private HashMap<String, List<String>> answers;
+    private List<String> answers;
     private String questionType;
-
-    public Question(String text, List<String> tags, HashMap<String, List<String>> answers, String questionType) {
+    private List<Question> nextQuestions;
+    public Question(String text, List<String> answers, String questionType,
+                    List<Problem> problems) {
         this.text = text;
-        this.tags = tags;
         this.answers = answers;
         this.questionType = questionType;
+        this.problems = problems;
     }
 
     public String getText() {
@@ -35,21 +37,31 @@ public class Question {
         this.questionType = questionType;
     }
 
-    public List<String> getTags() {
-        return tags;
-    }
 
-    public void setTags(List<String> tags) {
-        this.tags = tags;
-    }
-
-
-    public HashMap<String, List<String>> getAnswers() {
+    public List<String> getAnswers() {
         return answers;
     }
 
-    public void setAnswers(HashMap<String, List<String>> answers) {
+    public void setAnswers(List<String> answers) {
         this.answers = answers;
+    }
+
+
+    public List<Problem> getProblems() {
+        return problems;
+    }
+
+    public void setProblems(List<Problem> problems) {
+        this.problems = problems;
+    }
+
+
+    public List<Question> getNextQuestions() {
+        return nextQuestions;
+    }
+
+    public void setNextQuestions(List<Question> nextQuestions) {
+        this.nextQuestions = nextQuestions;
     }
 
 

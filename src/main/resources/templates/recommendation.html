@@ -162,6 +162,14 @@
                                     Endocrinologists are experts in glands that are responsible for producing and releasing hormones into the bloodstream (which coordinate processes ranging from metabolism to cell growth). One of the most common diseases treated by endocrinologists is hyperthyroidism (common symptoms include sudden weight loss or gain, and fatigue). Furthermore, endocrinologists are usually involved in the treatment of a range of diseases, including diabetes, osteoporosis or metabolic disorders.</p>
                             </div>
                         </div>
+                        <div th:case="'No specialist'">
+                            <button type="button" class="collapsible">No specialist</button>
+                            <div class="content">
+                                <p>
+                                  No specialist assigned.
+                                </p>
+                            </div>
+                        </div>
 
 
 
@@ -181,7 +189,7 @@
 
     </div>
     <div class="btn-group" style="position:fixed;right:0px;top:0px;">
-        <a href="/kb" class="button2" onclick="location.href='/kb';"> Reset </a>
+        <a href="/kb" class="button2" onclick="location.href='/restart';"> Reset </a>
         <a href="/index.html" class="button2" onclick="location.href='/index.html';"> Home </a>
         <a href="/about.html" class="button2" onclick="location.href='/about.html';"> About </a>
     </div>
