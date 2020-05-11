@@ -103,7 +103,7 @@ public class RuleModel {
                             case "Sore throat / cough / sinusitis":
                                 if (question.getText().equals("Is the patient a smoker?")) {
                                     if (answer.equals("Yes")) {
-                                        patientSecondaryProblem.getRiskFactors().add("Smoker");
+                                        patientProblem.setRiskFactors(Collections.singletonList(answer));
                                     }
                                 }
                                 break;

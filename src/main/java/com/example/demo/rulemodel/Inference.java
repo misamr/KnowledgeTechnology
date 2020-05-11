@@ -30,7 +30,7 @@ public class Inference {
             case "Headache":
                 if (secondary == null) {
                     String tag;
-                    if (major.getSeverity().equals("Severe") && major.getFrequency().equals("Recurring (chronic)") ||
+                    if (RuleModel.compareStrings(major.getSeverity(), "Severe") && major.getFrequency().equals("Recurring (chronic)") ||
                             major.getFrequency().equals("Recurring (chronic)") && major.getSymptoms().size() > 1) {
                         tag = "Neurologist";
                     } else if (RuleModel.compareStrings(major.getSeverity(), "Severe") && major.getFrequency().equals("Recurring (chronic)")
@@ -60,6 +60,11 @@ public class Inference {
                             }
                             patient.getRecommendations().put(tag,
                                     patient.getRecommendations().getOrDefault(tag, 0) + 1);
+                        case "Seizures":
+                            tag = "Neurologist";
+                            patient.getRecommendations().put(tag,
+                                    patient.getRecommendations().getOrDefault(tag, 0) + 1);
+
                     }
                 }
                 break;
