@@ -19,9 +19,17 @@ public class Patient implements Serializable {
     private List<String> specialists;
     private List<Problem> problems;
     private boolean fever;
+    private int age = Integer.MIN_VALUE;
+    private int systolic = Integer.MIN_VALUE;
+    private int diastolic = Integer.MIN_VALUE;
+    private int weight = Integer.MIN_VALUE;
+    private int height = Integer.MIN_VALUE;
+    private int temperature = Integer.MIN_VALUE;
+
     public void init() {
         this.recommendations = new HashMap<>();
         this.specialists = new ArrayList<>();
+        this.problems = new ArrayList<>();
     }
 
     public HashMap<String, Integer> getRecommendations() {
@@ -43,8 +51,16 @@ public class Patient implements Serializable {
     @Override
     public String toString() {
         return "Patient{" +
-                ", recommendations=" + recommendations +
+                "recommendations=" + recommendations +
+                ", specialists=" + specialists +
                 ", problems=" + problems +
+                ", fever=" + fever +
+                ", age=" + age +
+                ", systolic=" + systolic +
+                ", diastolic=" + diastolic +
+                ", weight=" + weight +
+                ", height=" + height +
+                ", temperature=" + temperature +
                 '}';
     }
 
@@ -62,5 +78,53 @@ public class Patient implements Serializable {
 
     public void setFever(boolean fever) {
         this.fever = fever;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public int getSystolic() {
+        return systolic;
+    }
+
+    public void setSystolic(int systolic) {
+        this.systolic = systolic;
+    }
+
+    public int getDiastolic() {
+        return diastolic;
+    }
+
+    public void setDiastolic(int diastolic) {
+        this.diastolic = diastolic;
+    }
+
+    public int getWeight() {
+        return weight;
+    }
+
+    public void setWeight(int weight) {
+        this.weight = weight;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
+    }
+
+    public int getTemperature() {
+        return temperature;
+    }
+
+    public void setTemperature(int temperature) {
+        this.temperature = temperature;
     }
 }

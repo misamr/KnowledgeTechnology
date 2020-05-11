@@ -36,7 +36,10 @@ public final class QuestionsUtil {
             List<String> preconditions = Arrays.asList(list.get(i + 1).split(";"));
             List<Problem> problems = parsePreconditions(preconditions);
             String questionType = list.get(i + 2);
-            List<String> answers = Arrays.asList(list.get(i + 3).split(","));
+            List<String> answers = null;
+            if (!questionType.equals("text")) {
+                answers = Arrays.asList(list.get(i + 3).split(","));
+            }
             questions.add(new Question(question, answers, questionType, problems));
         }
         return questions;
@@ -80,17 +83,19 @@ public final class QuestionsUtil {
     public static Survey getSurveyInstance(Question question) {
         Survey survey = new Survey();
         try {
-            String[] answersString = getSelectedAnswers(question);
+            if (!question.getQuestionType().equals("text")) {
+                String[] answersString = getSelectedAnswers(Objects.requireNonNull(question));
+                survey.setOptions(answersString);
+                String[] options = survey.getOptions();
+                OptionTextValue[] optionTextValues = new OptionTextValue[options.length];
+                for (int i = 0; i < options.length; i++) {
+                    optionTextValues[i] = new OptionTextValue(question.getText(), options[i]);
+                }
+                survey.setOptionTextValue(optionTextValues);
+            }
             survey.setQuestion(question);
-            survey.setOptions(answersString);
             survey.setQuestionText(question.getText());
             survey.setDisplayType(question.getQuestionType());
-            String[] options = survey.getOptions();
-            OptionTextValue[] optionTextValues = new OptionTextValue[options.length];
-            for (int i = 0; i < options.length; i++) {
-                optionTextValues[i] = new OptionTextValue(question.getText(), options[i]);
-            }
-            survey.setOptionTextValue(optionTextValues);
         } catch (NullPointerException e) {
             survey.setQuestionText("exit");
         }
@@ -106,17 +111,21 @@ public final class QuestionsUtil {
     public static Survey getInitialSurveyInstance(Queue<Question> questions) {
         Survey survey = new Survey();
         Question question = questions.peek();
-        String[] answersString = getSelectedAnswers(Objects.requireNonNull(question));
         survey.setQuestion(question);
-        survey.setOptions(answersString);
+        assert question != null;
+        if (!question.getQuestionType().equals("text")) {
+            String[] answersString = getSelectedAnswers(Objects.requireNonNull(question));
+            survey.setOptions(answersString);
+            String[] options = survey.getOptions();
+            OptionTextValue[] optionTextValues = new OptionTextValue[options.length];
+            for (int i = 0; i < options.length; i++) {
+                optionTextValues[i] = new OptionTextValue(question.getText(), options[i]);
+            }
+            survey.setOptionTextValue(optionTextValues);
+        }
         survey.setQuestionText(question.getText());
         survey.setDisplayType(question.getQuestionType());
-        String[] options = survey.getOptions();
-        OptionTextValue[] optionTextValues = new OptionTextValue[options.length];
-        for (int i = 0; i < options.length; i++) {
-            optionTextValues[i] = new OptionTextValue(question.getText(), options[i]);
-        }
-        survey.setOptionTextValue(optionTextValues);
+
         return survey;
     }
 

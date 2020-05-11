@@ -16,6 +16,31 @@ public class RuleModel {
     private static Logger logger = LoggerFactory.getLogger(RuleModel.class);
 
     /**
+     * Populate the model for text input questions
+     *
+     * @param patient  patient data
+     * @param question current question
+     * @param answer   numeric input by user
+     */
+    public static void populate(Patient patient, Question question, int answer) {
+        logger.info("text: " + question.getText());
+        if (patient.getAge() == Integer.MIN_VALUE) {
+            patient.setAge(answer);
+        } else if (patient.getSystolic() == Integer.MIN_VALUE) {
+            patient.setSystolic(answer);
+        } else if (patient.getDiastolic() == Integer.MIN_VALUE) {
+            patient.setDiastolic(answer);
+        } else if (patient.getWeight() == Integer.MIN_VALUE) {
+            patient.setWeight(answer);
+        } else if (patient.getHeight() == Integer.MIN_VALUE) {
+            patient.setHeight(answer);
+        } else if (patient.getTemperature() == Integer.MIN_VALUE) {
+            patient.setTemperature(answer);
+            patient.setFever(answer > 38);
+        }
+    }
+
+    /**
      * Populates the answers of checkbox questions to the Patient class
      *
      * @param patient   patient with problems

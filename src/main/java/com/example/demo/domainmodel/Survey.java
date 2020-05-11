@@ -7,10 +7,12 @@ public class Survey {
     private String questionText;
     private String[] options;
     private String[] checkBoxSelectedValues;
+    private String textGivenValue;
     private String radioButtonSelectedValue;
     private String checkBoxSelectedValue;
     private String displayType;
     private OptionTextValue[] optionTextValue;
+
     public Question getQuestion() {
         return question;
     }
@@ -86,5 +88,13 @@ public class Survey {
                 ", checkBoxSelectedValues='" + Arrays.toString(checkBoxSelectedValues) + '\'' +
                 ", displayType='" + displayType + '\'' +
                 '}';
+    }
+
+    public String getTextGivenValue() {
+        return textGivenValue;
+    }
+
+    public void setTextGivenValue(String textGivenValue) {
+        this.textGivenValue = textGivenValue;
     }
 }
