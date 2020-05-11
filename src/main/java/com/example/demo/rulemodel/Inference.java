@@ -117,8 +117,10 @@ public class Inference {
                 }
                 if (secondary != null && secondary.getComplaint().equals("Chest pain")) {
                     tag = "Cardiologist";
-                } else if (major.getSymptoms() != null && major.getSymptoms().size() > 2) {
-                    tag = "Allergologist";
+                    if (major.getSymptoms() != null && major.getSymptoms().size() >= 2) {
+                        patient.getRecommendations().put("Allergologist",
+                                patient.getRecommendations().getOrDefault("Allergologist", 0) + 1);
+                    }
                 } else {
                     tag = "No specialist";
                 }
@@ -126,9 +128,17 @@ public class Inference {
                         patient.getRecommendations().getOrDefault(tag, 0) + 1);
                 break;
         }
+        // check for obesity
+        double bmi = patient.getWeight() / Math.pow(patient.getHeight() / 100.0, 2);
+        if (bmi >= 30) {
+            patient.getRecommendations().put("Cardiologist",
+                    patient.getRecommendations().getOrDefault("Cardiologist", 0) + 1);
+        }
         // in case no inference
         if (patient.getRecommendations().isEmpty()) {
             patient.getRecommendations().put("No specialist", 1);
+        } else if (patient.getRecommendations().size() > 1) {
+            patient.getRecommendations().remove("No specialist");
         }
         // sort the specialist count to form the ranking
         HashMap<String, Integer> sortedRecommendations = sortByValue(patient.getRecommendations());
