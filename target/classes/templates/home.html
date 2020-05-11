@@ -14,15 +14,31 @@
 
         });
 
+
+
+function checkInp()
+{
+  var x=document.forms["surveyForm"]["textGivenValue"].value;
+  if (x == "" || isNaN(x))
+  {
+    alert("Must input numbers");
+    return false;
+  }
+  else{
+    return true;
+  }
+}
+
+
         function isSelected() {
 
-            if ($('input[type=radio]:checked').length > 0 || $('input[type=checkbox]:checked').length > 0) {
+            if (checkInp() || $('input[type=radio]:checked').length > 0 || $('input[type=checkbox]:checked').length > 0) {
                 $("#dialog").hide();
                 document.getElementById('surveyForm').submit();
-            } else {
+            }
+            else {
                 console.log("Dialog", $('#dialog'));
                 $("#dialog").show();
-
             }
         }
     </script>
@@ -157,6 +173,15 @@
 
                         </div>
                     </ul>
+                </div>
+                <div th:case="'text'">
+                    <label>
+                        <input type="text"
+                               th:field="*{textGivenValue}"
+                               th:value="${var}"/>
+                    </label>
+                    <label th:text="${var}">
+                    </label>
                 </div>
             </div>
 

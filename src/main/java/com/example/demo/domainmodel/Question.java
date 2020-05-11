@@ -13,6 +13,7 @@ public class Question {
     private List<String> answers;
     private String questionType;
     private List<Question> nextQuestions;
+
     public Question(String text, List<String> answers, String questionType,
                     List<Problem> problems) {
         this.text = text;
