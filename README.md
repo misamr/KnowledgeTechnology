@@ -28,7 +28,7 @@ Alternatively, you can run the program from the cloud by typing the following in
 ```
 https://xgp.herokuapp.com
 ```
-##Project structure
+## Project structure
 * __.idea__: The IntelliJ project specific settings file.
 * __.settings__: The Eclipse project specific settings file.
 * __.vscode__: The Virtual Studio Code project specific settings file.
@@ -36,7 +36,7 @@ https://xgp.herokuapp.com
 domainmodel, rulemodel and utils. There are also elements of UI in __resources__ folder along with the file 
 with the questions named `survey`
 
-##Authors
+## Authors
 Liya Yeshmagambetova (s3360571), Luke van den Wittenboer (s3480569) and Michaela Mrazkova (s3372219)
 
 
