@@ -138,6 +138,11 @@ Difficulty breathing
 radio
 Yes,No
 
+Does the patient have chest pain?
+Difficulty breathing;!Muscle / joint pain
+radio
+Yes,No
+
 Check all that apply:
 Difficulty breathing;Muscle / joint pain
 checkbox

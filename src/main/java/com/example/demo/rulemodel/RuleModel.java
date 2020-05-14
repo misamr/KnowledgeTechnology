@@ -204,11 +204,10 @@ public class RuleModel {
      * @param patientProblems patient problems
      */
     private static void removeIrrelevantQuestions(Queue<Question> questions, List<Problem> patientProblems) {
-        if (questions.peek() != null) {
-            while (questions.peek() != null && !findMatch(patientProblems, questions.peek().getProblems())) {
-                questions.remove();
-            }
+        while (questions.peek() != null && !findMatch(patientProblems, questions.peek().getProblems())) {
+            questions.remove();
         }
+
     }
 
     /**
@@ -232,7 +231,13 @@ public class RuleModel {
                 }
             }
         }
-        if (cnt != patientProblems.size()) match = false;
+        int qSize = 0;
+        for (Problem q : qProblems) {
+            if (q.getComplaint().charAt(0) != '!') qSize++;
+        }
+        if (cnt != patientProblems.size() || cnt != qSize) {
+            match = false;
+        }
         return match;
     }
 
