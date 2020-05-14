@@ -48,7 +48,8 @@ When navigating through our application, you can always reset your progress by c
 * __.vscode__: The Virtual Studio Code project specific settings file.
 * __src__: The application source files. You can find here the Java files divided into 3 folders: 
 domainmodel, rulemodel and utils. There are also elements of UI in __resources__ folder along with the file 
-with the questions named `survey`
+with the questions named `survey`.
+* __target__: Maven deafult output folder.
 
 ## Authors
 Liya Yeshmagambetova (s3360571), Luke van den Wittenboer (s3480569) and Michaela Mrazkova (s3372219)
