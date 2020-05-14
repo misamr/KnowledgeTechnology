@@ -103,6 +103,22 @@ public class ControllerKB {
             logger.info("exit now");
             Inference.inferRules(patient);
             model.addAttribute("specialists", patient.getSpecialists());
+            String age = "Age: \t" + patient.getAge();
+            String bloodPressure = "Blood pressure: \t" + patient.getSystolic() + "/"
+                    + patient.getDiastolic() + " mm Hg";
+            double bmi = patient.getWeight() / Math.pow(patient.getHeight() / 100.0, 2);
+            double roundedBMI = Math.round(bmi);
+            String BMI = "BMI: \t" + roundedBMI + " kg/m\u00B2";
+            String fever;
+            if (patient.isFever()){
+                fever = "Temperature: \t" + patient.getTemperature() + " \u00B0" +  "C, the patient has a fever.";
+            } else{
+                fever = "Temperature: \t" + patient.getTemperature() + " \u00B0" + "C, the patient does not have a fever.";
+            }
+            model.addAttribute("age", age);
+            model.addAttribute("bloodPressure", bloodPressure);
+            model.addAttribute("bmi", BMI);
+            model.addAttribute("fever", fever);
             return "recommendation";
         } else { //populate the model
             model.addAttribute("survey", surveyNew);
